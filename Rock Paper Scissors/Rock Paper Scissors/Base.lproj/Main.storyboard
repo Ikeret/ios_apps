@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdO-Gn-uqJ">
-                                <rect key="frame" x="168.5" y="396" width="77" height="98"/>
+                                <rect key="frame" x="168.5" y="296" width="77" height="98"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <state key="normal" title="🤚🏼"/>
                                 <connections>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-cj-bR2">
-                                <rect key="frame" x="20" y="396" width="77" height="98"/>
+                                <rect key="frame" x="20" y="296" width="77" height="98"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <state key="normal" title="✊🏼"/>
                                 <connections>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-ut-yeL">
-                                <rect key="frame" x="317" y="396" width="77" height="98"/>
+                                <rect key="frame" x="317" y="296" width="77" height="98"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <state key="normal" title="✌🏼"/>
                                 <connections>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKt-QD-1yt">
-                                <rect key="frame" x="20" y="244" width="374" height="36"/>
+                                <rect key="frame" x="20" y="144" width="374" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hac-O9-xK7">
-                                <rect key="frame" x="177.5" y="320" width="59" height="36"/>
+                                <rect key="frame" x="177.5" y="220" width="59" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -61,19 +61,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qel-pv-eKg">
-                                <rect key="frame" x="317" y="295" width="77" height="86"/>
+                                <rect key="frame" x="317" y="195" width="77" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👱🏼‍♂️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFT-YP-nJv">
-                                <rect key="frame" x="20" y="295" width="77" height="86"/>
+                                <rect key="frame" x="20" y="195" width="77" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrn-Vo-s1o">
-                                <rect key="frame" x="147" y="594" width="120" height="42"/>
+                                <rect key="frame" x="147" y="494" width="120" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="New Game"/>
                                 <connections>
@@ -92,7 +92,7 @@
                             <constraint firstItem="UFT-YP-nJv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Q8p-Ud-5A4"/>
                             <constraint firstItem="WaX-cj-bR2" firstAttribute="top" secondItem="UFT-YP-nJv" secondAttribute="bottom" constant="15" id="V8l-qt-Y1S"/>
                             <constraint firstItem="hac-O9-xK7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VFq-bA-Z7Z"/>
-                            <constraint firstItem="SKt-QD-1yt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="VYw-lZ-XUs"/>
+                            <constraint firstItem="SKt-QD-1yt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="VYw-lZ-XUs"/>
                             <constraint firstItem="Lrn-Vo-s1o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jek-1R-Df9"/>
                             <constraint firstItem="qel-pv-eKg" firstAttribute="top" secondItem="SKt-QD-1yt" secondAttribute="bottom" constant="15" id="jui-oh-YPP"/>
                             <constraint firstItem="hdO-Gn-uqJ" firstAttribute="top" secondItem="hac-O9-xK7" secondAttribute="bottom" constant="40" id="kOa-Cm-I7x"/>

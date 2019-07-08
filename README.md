@@ -4,7 +4,6 @@ A tabbed-based app with 2 modes of operation:
 * in the second mode app output the sum of points of desired count of dice
     
 Dev features: 
-* add icons of dice, if count of them less then 3
 * add animation of rolling dice
     
  ***

@@ -13,11 +13,20 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        icons_dice = [leftDice, centralDice, rightDice]
     }
 
     @IBOutlet weak var numOfDice: UILabel!
     @IBOutlet weak var randomNumLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var leftDice: UIImageView!
+    @IBOutlet weak var centralDice: UIImageView!
+    @IBOutlet weak var rightDice: UIImageView!
+    
+    let all_dice = [ #imageLiteral(resourceName: "dice_1"),#imageLiteral(resourceName: "dice_2"),#imageLiteral(resourceName: "dice_3"),#imageLiteral(resourceName: "dice_4"),#imageLiteral(resourceName: "dice_5"),#imageLiteral(resourceName: "dice_6") ]
+    var icons_dice : [UIImageView]?
     
     var randomNum = 0
     var countDice = 1
@@ -28,12 +37,25 @@ class SecondViewController: UIViewController {
     }
     @IBAction func generate(_ sender: Any) {
         randomNum = 0
-        
-        for _ in 1...countDice {
-            randomNum += Int.random(in: 1...6)
+        hide_dice()
+        for i in 0..<countDice {
+            let randomValue = Int.random(in: 1...6)
+            randomNum += randomValue
+            
+            if countDice <= 3 {
+                icons_dice![i].image = all_dice[randomValue-1]
+                icons_dice![i].isHidden = false
+                stackView.isHidden = false
+            }
         }
-                
         randomNumLabel.text = "\(randomNum)"
+    }
+    
+    func hide_dice() {
+        stackView.isHidden = true
+        for img in icons_dice! {
+            img.isHidden = true
+        }
     }
 }
 

@@ -13,4 +13,4 @@ Dev features:
  
  Dev features:
 * add oppotunity to change sex in the game
-* add mult
+* add multiplayer

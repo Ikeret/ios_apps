@@ -1,4 +1,4 @@
-# Numbers
+# [Numbers](https://github.com/Ikeret/ios_apps/tree/master/Numbers/Numbers)
 A tabbed-based app with 2 modes of operation:
 * in the first mode app output a random number between two values
 * in the second mode app output the sum of points of desired count of dice
@@ -9,7 +9,7 @@ Dev features:
     
  ***
  
- # Rock Paper Scissors
+ # [Rock Paper Scissors](https://github.com/Ikeret/ios_apps/tree/master/Rock%20Paper%20Scissors/Rock%20Paper%20Scissors)
  A single view app which represent the famous game reflected in its name
  
  Dev features:

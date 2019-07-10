@@ -15,17 +15,45 @@ class ViewController: UIViewController{ //UITableViewDelegate, UITableViewDataSo
         var price : Double?
     }
     
-    var data_arr : [data_cell] = [data_cell.init(name: "Молоко", count: 2, price: 35.90)]
+    var data_arr : [data_cell] = [data_cell.init(name: "Лапша столичная", count: 20, price: 35.90)]
 
     @IBOutlet weak var myTableView: UITableView!
     
+    @IBOutlet weak var sum: UILabel!
     
     let identifier = "MyCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        set_sum()
+    }
+    
+    func set_sum() {
+        var res = 0.0
+        for item in data_arr {
+            res += (item.price! * Double(item.count!))
+        }
+        sum.text = String(format: "%8.2f", res)
+    }
+    
+    @IBAction func addCell(_ sender: UIBarButtonItem) {
+        data_arr.append(data_cell.init(name: "Хлеб", count: 1, price: 9999.99))
+        myTableView.beginUpdates()
+        myTableView.insertRows(at: [IndexPath(row: data_arr.count - 1, section: 0)], with: .automatic)
+        myTableView.endUpdates()
+        set_sum()
+    }
+    
+    @IBAction func deleteCells(_ sender: UIBarButtonItem) {
+        data_arr.removeAll()
+        myTableView.reloadData()
+        set_sum()
     }
 }
+
+
+
 
 extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,11 +65,15 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
 
         let index = indexPath.row
         cell.name.text = data_arr[index].name
-        cell.count.text = String(data_arr[index].count!)
-        cell.price.text = String(data_arr[index].price!)
+        if data_arr[index].count! != 1 {
+            cell.count.text = "\(data_arr[index].count!)"
+        }
+        else {
+            cell.count.text = ""
+        }
+        cell.price.text = String(format: "%6.2f", data_arr[index].price!)
         
         return cell;
     }
-    
     
 }

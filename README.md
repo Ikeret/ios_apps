@@ -7,6 +7,8 @@ A tabbed-based app with 2 modes of operation:
 Dev features: 
 * add animation of rolling dice
 
+---
+
 Приложение, работающее в 2 режимах:
 * в первом режиме приложение выводит случайное число, заданное пользователем
 * во втором режиме приложение выводит сумму очков, выпавших на указанном количестве кубиков. Если кубиков меньше или равно 3, то выводит картинки с выпавшими гранями
@@ -22,7 +24,9 @@ A single view app which represent the famous game reflected in its name
 Dev features:
 * add oppotunity to change sex in the game
 * add multiplayer over wi-fi
-* add various levels of dificult to single player
+* add different difficulty levels for single player
+
+---
 
 Одностраничное приложение, в котором реализована игра "Камень, ножницы, бумага"
 

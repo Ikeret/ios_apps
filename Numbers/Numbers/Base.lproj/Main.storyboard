@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="OBL-3K-okr">
-                                <rect key="frame" x="20" y="654" width="100" height="34"/>
+                                <rect key="frame" x="20" y="529" width="100" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="azc-qw-xe5"/>
                                 </constraints>
@@ -39,7 +39,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-Tp-EQW">
-                                <rect key="frame" x="294" y="654" width="100" height="34"/>
+                                <rect key="frame" x="294" y="529" width="100" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="a7K-Qo-Hk7"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCC-b2-hnZ">
-                                <rect key="frame" x="20" y="625" width="100" height="21"/>
+                                <rect key="frame" x="20" y="500" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="sDM-rr-tg7"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L54-XI-A93">
-                                <rect key="frame" x="291" y="625" width="105" height="21"/>
+                                <rect key="frame" x="291" y="500" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                         <constraints>
                             <constraint firstItem="OBL-3K-okr" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="AmZ-uj-Bex"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="OFb-Tp-EQW" secondAttribute="bottom" constant="175" id="Ibn-VQ-FAC">
-                                <variation key="heightClass=regular" constant="125"/>
+                                <variation key="heightClass=regular" constant="250"/>
                             </constraint>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="L54-XI-A93" secondAttribute="trailing" constant="18" id="Lph-d7-Omv"/>
                             <constraint firstItem="OBL-3K-okr" firstAttribute="top" secondItem="LCC-b2-hnZ" secondAttribute="bottom" constant="8" id="UDy-WF-hTS"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="OFb-Tp-EQW" secondAttribute="trailing" constant="20" id="qRZ-IV-R6d"/>
                             <constraint firstItem="OFb-Tp-EQW" firstAttribute="top" secondItem="L54-XI-A93" secondAttribute="bottom" constant="8" id="xsE-0N-eZd"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="OBL-3K-okr" secondAttribute="bottom" constant="175" id="yFW-IS-Ghn">
-                                <variation key="heightClass=regular" constant="125"/>
+                                <variation key="heightClass=regular" constant="250"/>
                             </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>

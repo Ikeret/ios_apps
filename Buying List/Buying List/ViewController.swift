@@ -8,14 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController{ //UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     struct data_cell {
         var name : String?
         var count : UInt?
         var price : Double?
     }
     
-    var data_arr : [data_cell] = [data_cell.init(name: "Лапша столичная", count: 20, price: 35.90)]
+
+    var data_arr : [data_cell] = []
+//    {
+//        set {
+//
+//
+//            UserDefaults.standard.set(NSArray(object: newValue), forKey: "dataKey")
+//            UserDefaults.standard.synchronize()
+////            set_sum()
+////            myTableView.reloadData()
+//        }
+//        get {
+//            if let array = UserDefaults.standard.array(forKey: "dataKey") as NSArray? {
+//                return array as! [ViewController.data_cell]
+//            } else {
+//                return []
+//            }
+//        }
+//    }
 
     @IBOutlet weak var myTableView: UITableView!
     
@@ -25,8 +43,7 @@ class ViewController: UIViewController{ //UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        set_sum()
+
     }
     
     func set_sum() {
@@ -38,11 +55,36 @@ class ViewController: UIViewController{ //UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func addCell(_ sender: UIBarButtonItem) {
-        data_arr.append(data_cell.init(name: "Хлеб", count: 1, price: 9999.99))
-        myTableView.beginUpdates()
-        myTableView.insertRows(at: [IndexPath(row: data_arr.count - 1, section: 0)], with: .automatic)
-        myTableView.endUpdates()
-        set_sum()
+        let alertController = UIAlertController(title: "Add new item", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Name"
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Count"
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Price"
+        }
+        
+        let alertAction1 = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let alertAction2 = UIAlertAction(title: "Add", style: .cancel) { (alert) in
+            if let name = alertController.textFields![0].text,
+                let count : UInt = UInt(alertController.textFields![1].text!),
+                let price : Double = Double(alertController.textFields![2].text!) {
+                self.data_arr.append(data_cell(name: name, count: count, price: price))
+                self.myTableView.reloadData()
+                self.set_sum()
+            }
+        }
+        
+        alertController.addAction(alertAction1)
+        alertController.addAction(alertAction2)
+        present(alertController, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func deleteCells(_ sender: UIBarButtonItem) {

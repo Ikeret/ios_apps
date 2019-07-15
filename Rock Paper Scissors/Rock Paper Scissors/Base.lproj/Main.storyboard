@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lrO-YI-BjT">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYd-zB-7Mo">
-                                <rect key="frame" x="135.66666666666666" y="454" width="142.99999999999997" height="48"/>
+                                <rect key="frame" x="135.5" y="483" width="143" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Multiplayer"/>
                                 <connections>
@@ -27,24 +27,46 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZ2-RS-g6n">
-                                <rect key="frame" x="124" y="394" width="166" height="48"/>
+                                <rect key="frame" x="124" y="420" width="166" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Single player"/>
                                 <connections>
                                     <segue destination="Rnv-VP-9Al" kind="show" id="8V1-9D-2EX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXV-Pi-Ua1">
+                                <rect key="frame" x="153" y="138" width="108" height="132"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="👱🏼‍♂️"/>
+                                <connections>
+                                    <action selector="Change_user_face:" destination="fN2-df-1Jg" eventType="touchUpInside" id="tK6-M1-naC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to change avatar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU7-Vc-UAy">
+                                <rect key="frame" x="127" y="113" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wU7-Vc-UAy" firstAttribute="top" secondItem="yBo-wO-6cd" secondAttribute="top" constant="25" id="2MJ-C6-C0s"/>
                             <constraint firstItem="pYd-zB-7Mo" firstAttribute="centerX" secondItem="oky-tW-ToJ" secondAttribute="centerX" id="68a-Cs-G8v"/>
-                            <constraint firstItem="pYd-zB-7Mo" firstAttribute="centerY" secondItem="oky-tW-ToJ" secondAttribute="centerY" constant="30" id="OGN-NJ-bNf"/>
-                            <constraint firstItem="RZ2-RS-g6n" firstAttribute="centerY" secondItem="oky-tW-ToJ" secondAttribute="centerY" constant="-30" id="fR6-Ks-E7A"/>
+                            <constraint firstItem="rXV-Pi-Ua1" firstAttribute="top" secondItem="yBo-wO-6cd" secondAttribute="top" constant="50" id="7eg-KS-qQG"/>
+                            <constraint firstItem="pYd-zB-7Mo" firstAttribute="top" secondItem="RZ2-RS-g6n" secondAttribute="bottom" constant="15" id="7ua-f2-bKc"/>
+                            <constraint firstItem="rXV-Pi-Ua1" firstAttribute="centerX" secondItem="oky-tW-ToJ" secondAttribute="centerX" id="FC1-vb-ZgS"/>
+                            <constraint firstItem="RZ2-RS-g6n" firstAttribute="top" secondItem="rXV-Pi-Ua1" secondAttribute="bottom" constant="150" id="WwK-5N-jej"/>
+                            <constraint firstItem="wU7-Vc-UAy" firstAttribute="centerX" secondItem="oky-tW-ToJ" secondAttribute="centerX" id="f0S-Gn-7DQ"/>
                             <constraint firstItem="RZ2-RS-g6n" firstAttribute="centerX" secondItem="oky-tW-ToJ" secondAttribute="centerX" id="rsC-oT-NEp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yBo-wO-6cd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="tEt-Rn-ZxZ"/>
+                    <connections>
+                        <outlet property="hint" destination="wU7-Vc-UAy" id="rHK-VE-8r0"/>
+                        <outlet property="user_face" destination="rXV-Pi-Ua1" id="KR8-zj-rJj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cp9-mY-CwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-zn-rqO">
-                                <rect key="frame" x="121.66666666666669" y="430" width="171" height="36"/>
+                                <rect key="frame" x="121.5" y="430" width="171" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdO-Gn-uqJ">
-                                <rect key="frame" x="168.66666666666666" y="399" width="77" height="98"/>
+                                <rect key="frame" x="168.5" y="399" width="77" height="98"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <state key="normal" title="🤚🏼"/>
                                 <connections>
@@ -111,7 +133,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKt-QD-1yt">
-                                <rect key="frame" x="129.66666666666666" y="230" width="154.99999999999997" height="36"/>
+                                <rect key="frame" x="129.5" y="250" width="155" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -120,7 +142,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hac-O9-xK7">
-                                <rect key="frame" x="177.66666666666666" y="323" width="59" height="36"/>
+                                <rect key="frame" x="177.5" y="323" width="59" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -166,7 +188,7 @@
                             <constraint firstItem="WaX-cj-bR2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hcJ-5i-ouW"/>
                             <constraint firstItem="Lrn-Vo-s1o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jek-1R-Df9"/>
                             <constraint firstItem="hdO-Gn-uqJ" firstAttribute="top" secondItem="hac-O9-xK7" secondAttribute="bottom" constant="40" id="kOa-Cm-I7x"/>
-                            <constraint firstItem="SKt-QD-1yt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="rnn-qD-qtF"/>
+                            <constraint firstItem="SKt-QD-1yt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-180" id="rnn-qD-qtF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2cf-ut-yeL" secondAttribute="trailing" constant="20" id="t2H-XA-jqx"/>
                             <constraint firstItem="WaX-cj-bR2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="w3T-Xr-Ga1"/>
                         </constraints>
@@ -223,7 +245,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-c5-ZfY">
-                                <rect key="frame" x="73.666666666666686" y="230" width="267" height="36"/>
+                                <rect key="frame" x="73.5" y="250" width="267" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -244,7 +266,7 @@
                             <constraint firstItem="3oe-Q8-acB" firstAttribute="top" secondItem="WR9-lz-fmx" secondAttribute="bottom" constant="8" id="h0J-a3-vei"/>
                             <constraint firstItem="cfE-Bn-7f2" firstAttribute="trailing" secondItem="bGf-Tg-ez2" secondAttribute="trailing" constant="20" id="n97-1I-WVo"/>
                             <constraint firstItem="Y9S-Iq-nMg" firstAttribute="centerX" secondItem="4g9-bw-GTB" secondAttribute="centerX" id="qMz-c7-rI0"/>
-                            <constraint firstItem="e8e-c5-ZfY" firstAttribute="centerY" secondItem="4g9-bw-GTB" secondAttribute="centerY" constant="-200" id="t82-ox-Xny"/>
+                            <constraint firstItem="e8e-c5-ZfY" firstAttribute="centerY" secondItem="4g9-bw-GTB" secondAttribute="centerY" constant="-180" id="t82-ox-Xny"/>
                             <constraint firstItem="e8e-c5-ZfY" firstAttribute="centerX" secondItem="4g9-bw-GTB" secondAttribute="centerX" id="vrd-QR-Xxj"/>
                             <constraint firstItem="3oe-Q8-acB" firstAttribute="centerX" secondItem="4g9-bw-GTB" secondAttribute="centerX" id="zKS-uc-HTz"/>
                         </constraints>

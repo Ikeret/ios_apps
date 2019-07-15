@@ -9,14 +9,58 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var user_face: UIButton!
+    @IBOutlet weak var hint: UILabel!
+    
+    var user_stored_face : String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "UserFace")
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            if let face = UserDefaults.standard.value(forKey: "UserFace") as? String {
+                return face
+            } else {
+                UserDefaults.standard.set("👱🏼‍♂️", forKey: "UserFace")
+                UserDefaults.standard.synchronize()
+                return "👱🏼‍♂️"
+            }
+        }
     }
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        user_face.setTitle(user_stored_face, for: .normal)
+        hide_hint()
+    }
+    
+    @IBAction func Change_user_face(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Choose your avatar", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Only one emoji"
+        }
+        
+        let alertActionDone = UIAlertAction(title: "Done", style: .cancel) { (alert) in
+            if let new_user_face = alertController.textFields![0].text, new_user_face.count == 1 {
+                self.user_stored_face = new_user_face
+                self.user_face.setTitle(new_user_face, for: .normal)
+                self.hide_hint()
+            }
+        }
+        
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alertController.addAction(alertActionDone)
+        alertController.addAction(alertActionCancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func hide_hint() {
+        if (UserDefaults.standard.value(forKey: "UserFace") as? String) != nil {
+            hint.isHidden = true
+        }
+    }
     /*
     // MARK: - Navigation
 

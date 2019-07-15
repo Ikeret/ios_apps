@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        human_face.text = UserDefaults.standard.value(forKey: "UserFace") as? String
     }
     
     @IBAction func rock_button(_ sender: UIButton) {

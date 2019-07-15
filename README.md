@@ -20,17 +20,19 @@ Dev features:
  
 # [Rock Paper Scissors](https://github.com/Ikeret/ios_apps/tree/master/Rock%20Paper%20Scissors/Rock%20Paper%20Scissors)
 A single view app which represent the famous game reflected in its name
+In-game features:
+* different difficulty levels for single player
  
 Dev features:
 * add oppotunity to change sex in the game
 * add multiplayer over wi-fi
-* add different difficulty levels for single player
 
 ---
 
 Одностраничное приложение, в котором реализована игра "Камень, ножницы, бумага"
+Доступные функции:
+* различные уровни сложности для одиночной игры
 
 В разработке:
 * добавить возможность выбрать пол перед началом игры
 * добавить мультиплейер по wi-fi
-* добавить различные уровни сложности для одиночной игры

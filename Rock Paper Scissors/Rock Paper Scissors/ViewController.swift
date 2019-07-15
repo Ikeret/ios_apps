@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+    var difficult: Int?
+    var previous_user_choice = ""
+    var count_identical_choices = 0
+    
     let arms : [String] = ["✊🏼", "🤚🏼", "✌🏼"]
     @IBOutlet weak var top_label: UILabel!
     @IBOutlet weak var new_game: UIButton!
@@ -30,8 +29,13 @@ class ViewController: UIViewController {
     var user_score = 0
     var computer_score = 0
     
-    var user_choose : String?
-    var computer_choose : String?
+    var user_choice : String?
+    var computer_choice : String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
     
     @IBAction func rock_button(_ sender: UIButton) {
         user_choosed(value: 0)
@@ -44,18 +48,29 @@ class ViewController: UIViewController {
     }
     
     func user_choosed(value : Int) {
-        user_choose = arms[value]
-        let randomInt = Int.random(in: 0..<3)
-        computer_choose = arms[randomInt]
+        user_choice = arms[value]
+        if user_choice == previous_user_choice {
+            count_identical_choices += 1
+        } else {
+            previous_user_choice = user_choice!
+            count_identical_choices = 0
+        }
         
-        first_arm.setTitle(user_choose, for: .normal)
-        third_arm.setTitle(computer_choose, for: .normal)
+        if (count_identical_choices >= difficult!) {
+            computer_choice = chooseWinState(user_choice: user_choice!)
+        } else {
+            let randomInt = Int.random(in: 0..<3)
+            computer_choice = arms[randomInt]
+        }
+        
+        first_arm.setTitle(user_choice, for: .normal)
+        third_arm.setTitle(computer_choice, for: .normal)
         
         human_face.isHidden = false
         robot_face.isHidden = false
         new_game.isHidden = false
         
-        if user_choose == computer_choose {
+        if user_choice == computer_choice {
             top_label.text = "Draw!"
             second_arm.setTitle("=", for: .normal)
         }
@@ -87,17 +102,17 @@ class ViewController: UIViewController {
     }
     
     func is_user_won() -> Bool {
-        switch user_choose {
+        switch user_choice {
         case "✊🏼":
-            if computer_choose == "✌🏼" {
+            if computer_choice == "✌🏼" {
                 return true
             }
         case "🤚🏼":
-            if computer_choose == "✊🏼" {
+            if computer_choice == "✊🏼" {
                 return true
             }
         case "✌🏼":
-            if computer_choose == "🤚🏼" {
+            if computer_choice == "🤚🏼" {
                 return true
             }
         default: break
@@ -123,5 +138,20 @@ class ViewController: UIViewController {
         
         new_game.isHidden = true
     }
+    
+    
+    func chooseWinState(user_choice : String) -> String {
+        switch user_choice {
+        case "✊🏼":
+            return "🤚🏼"
+        case "🤚🏼":
+            return "✌🏼"
+        case "✌🏼":
+            return "✊🏼"
+        default:
+            return ""
+        }
+    }
+    
 }
 

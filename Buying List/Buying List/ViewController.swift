@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         var price : Double?
     }
     
-
-    var data_arr : [data_cell] //= []
+    
+    var dataArray : [data_cell] //= []
     {
         set {
             UserDefaults.standard.set(try? PropertyListEncoder().encode(newValue), forKey: "dataKey")
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     @IBOutlet weak var myTableView: UITableView!
     
     @IBOutlet weak var sum: UILabel!
@@ -43,12 +43,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       set_sum()
+        set_sum()
     }
     
     func set_sum() {
         var res = 0.0
-        for item in data_arr {
+        for item in dataArray {
             res += (item.price! * Double(item.count!))
         }
         sum.text = String(format: "%8.2f", res)
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addCell(_ sender: UIBarButtonItem) {
+        myTableView.isEditing = false
         let alertController = UIAlertController(title: "Add new item", message: nil, preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
@@ -77,11 +78,12 @@ class ViewController: UIViewController {
         
         let alertAction1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let alertAction2 = UIAlertAction(title: "Add", style: .default) { (alert) in
-            if let name = alertController.textFields![0].text {
+            if let name = alertController.textFields![0].text, name != "" {
                 let count = UInt(alertController.textFields![2].text!) ?? 1
                 let price = Double(alertController.textFields![1].text!) ?? 0.0
-                self.data_arr.append(data_cell(name: name, count: count, price: price))
+                self.dataArray.append(data_cell(name: name, count: count, price: price))
             }
+            
         }
         
         alertController.addAction(alertAction1)
@@ -92,9 +94,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCells(_ sender: UIBarButtonItem) {
-        data_arr.removeAll()
-        myTableView.reloadData()
-        set_sum()
+        let alertController =  UIAlertController(title: "Clear all items?", message: nil, preferredStyle: .actionSheet)
+        let alertActionClear = UIAlertAction(title: "Clear", style: .destructive) { (alert) in
+            self.dataArray.removeAll()
+        }
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(alertActionClear)
+        alertController.addAction(alertActionCancel)
+        present(alertController, animated: true, completion: nil)
+        
     }
 }
 
@@ -103,16 +111,16 @@ class ViewController: UIViewController {
 
 extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_arr.count
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:MyCustomCell = self.myTableView.dequeueReusableCell(withIdentifier: identifier) as! MyCustomCell
-
+        
         let index = indexPath.row
-        let name = data_arr[index].name
-        let count = data_arr[index].count!
-        let price = data_arr[index].price!
+        let name = dataArray[index].name
+        let count = dataArray[index].count!
+        let price = dataArray[index].price!
         
         cell.name.text = name
         
@@ -137,7 +145,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            data_arr.remove(at: indexPath.row)
+            dataArray.remove(at: indexPath.row)
         }
     }
     
@@ -146,13 +154,13 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = data_arr[sourceIndexPath.row]
-        data_arr.remove(at: sourceIndexPath.row)
-        data_arr.insert(item, at: destinationIndexPath.row)
+        let item = dataArray[sourceIndexPath.row]
+        dataArray.remove(at: sourceIndexPath.row)
+        dataArray.insert(item, at: destinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let current_item = data_arr[indexPath.row]
+        let current_item = dataArray[indexPath.row]
         
         let alertController = UIAlertController(title: "Edit item", message: nil, preferredStyle: .alert)
         
@@ -182,14 +190,17 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
             if let name = alertController.textFields![0].text {
                 let count = UInt(alertController.textFields![2].text!) ?? 1
                 let price = Double(alertController.textFields![1].text!) ?? 0.0
-                self.data_arr[indexPath.row] = data_cell(name: name, count: count, price: price)
+                self.dataArray[indexPath.row] = data_cell(name: name, count: count, price: price)
             }
         }
         
         alertController.addAction(alertAction1)
         alertController.addAction(alertAction2)
         present(alertController, animated: true, completion: nil)
+        myTableView.deselectRow(at: indexPath, animated: true)
     }
     
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40.0
+    }
 }

@@ -1,4 +1,13 @@
 # Developer: Sergey Korshunov
+# [Buying List ALFA](https://github.com/Ikeret/ios_apps/tree/master/Buying%20List/Buying%20List)
+A simple app which use a table to present information of buying list. The user can specify a price for each product, and see the total price.
+
+---
+
+Простое приложение, которое отображает в таблице список покупок. Пользователь может указать цену для каждого товара и увидеть итоговую сумму.
+
+***
+
 # [Numbers](https://github.com/Ikeret/ios_apps/tree/master/Numbers/Numbers)
 A tabbed-based app with 2 modes of operation:
 * in the first mode app output a random number between two values

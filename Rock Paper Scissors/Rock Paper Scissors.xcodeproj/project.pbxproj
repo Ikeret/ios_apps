@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1820328022DCFB41004C5E1F /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820327F22DCFB41004C5E1F /* DifficultyViewController.swift */; };
 		1820328222DD0620004C5E1F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820328122DD0620004C5E1F /* MenuViewController.swift */; };
+		18CBAFD022DE5BC10013C66A /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAFCF22DE5BC10013C66A /* MPCHandler.swift */; };
+		18CBAFD222DE658F0013C66A /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAFD122DE658F0013C66A /* MultiplayerViewController.swift */; };
 		18F3379A22D1250400243F5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3379922D1250400243F5C /* AppDelegate.swift */; };
 		18F3379C22D1250400243F5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3379B22D1250400243F5C /* ViewController.swift */; };
 		18F3379F22D1250400243F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F3379D22D1250400243F5C /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		1820327F22DCFB41004C5E1F /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		1820328122DD0620004C5E1F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		18CBAFCF22DE5BC10013C66A /* MPCHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
+		18CBAFD122DE658F0013C66A /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 		18F3379622D1250400243F5C /* Rock Paper Scissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rock Paper Scissors.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F3379922D1250400243F5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F3379B22D1250400243F5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,11 +65,13 @@
 				18F3379922D1250400243F5C /* AppDelegate.swift */,
 				18F3379B22D1250400243F5C /* ViewController.swift */,
 				18F3379D22D1250400243F5C /* Main.storyboard */,
+				18CBAFD122DE658F0013C66A /* MultiplayerViewController.swift */,
 				18F337A022D1250500243F5C /* Assets.xcassets */,
 				18F337A222D1250500243F5C /* LaunchScreen.storyboard */,
 				18F337A522D1250500243F5C /* Info.plist */,
 				1820327F22DCFB41004C5E1F /* DifficultyViewController.swift */,
 				1820328122DD0620004C5E1F /* MenuViewController.swift */,
+				18CBAFCF22DE5BC10013C66A /* MPCHandler.swift */,
 			);
 			path = "Rock Paper Scissors";
 			sourceTree = "<group>";
@@ -142,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F3379C22D1250400243F5C /* ViewController.swift in Sources */,
+				18CBAFD222DE658F0013C66A /* MultiplayerViewController.swift in Sources */,
 				1820328022DCFB41004C5E1F /* DifficultyViewController.swift in Sources */,
+				18CBAFD022DE5BC10013C66A /* MPCHandler.swift in Sources */,
 				18F3379A22D1250400243F5C /* AppDelegate.swift in Sources */,
 				1820328222DD0620004C5E1F /* MenuViewController.swift in Sources */,
 			);

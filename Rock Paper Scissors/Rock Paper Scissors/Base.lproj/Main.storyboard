@@ -75,26 +75,131 @@
         <!--Multiplayer-->
         <scene sceneID="Jla-LS-MIT">
             <objects>
-                <viewController id="Sd4-pw-qCg" sceneMemberID="viewController">
+                <viewController id="Sd4-pw-qCg" customClass="MultiplayerViewController" customModule="Rock_Paper_Scissors" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KUV-Gv-jto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-zn-rqO">
-                                <rect key="frame" x="121.5" y="430" width="171" height="36"/>
+                            <button hidden="YES" opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0W-oM-Ibu">
+                                <rect key="frame" x="317" y="502" width="77" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <state key="normal" title="✌🏼"/>
+                                <connections>
+                                    <action selector="user_choosed:" destination="Sd4-pw-qCg" eventType="touchUpInside" id="QfP-vH-L5r"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-WY-49c">
+                                <rect key="frame" x="147" y="654" width="120" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="new_game:" destination="Sd4-pw-qCg" eventType="touchUpInside" id="5tu-8g-RuU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👱🏼‍♂️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-7Z-FT7">
+                                <rect key="frame" x="20" y="305" width="77" height="86"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for opponent..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-e0-f81">
+                                <rect key="frame" x="61" y="430" width="292.5" height="36"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZM-om-uxI">
+                                <rect key="frame" x="20" y="502" width="77" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <state key="normal" title="✊🏼"/>
+                                <connections>
+                                    <action selector="user_choosed:" destination="Sd4-pw-qCg" eventType="touchUpInside" id="cJv-Qz-eYK"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf6-jT-Su8">
+                                <rect key="frame" x="317" y="305" width="77" height="86"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uiu-Bo-blL">
+                                <rect key="frame" x="177.5" y="334" width="59" height="36"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eel-XY-Okk">
+                                <rect key="frame" x="168.5" y="506" width="77" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <state key="normal" title="🤚🏼"/>
+                                <connections>
+                                    <action selector="user_choosed:" destination="Sd4-pw-qCg" eventType="touchUpInside" id="wPc-js-BaI"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Gaj-YJ-c9k">
+                                <rect key="frame" x="188.5" y="474" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cpD-zn-rqO" firstAttribute="centerY" secondItem="KUV-Gv-jto" secondAttribute="centerY" id="RNt-Mc-ehb"/>
-                            <constraint firstItem="cpD-zn-rqO" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="aH4-5V-6a7"/>
+                            <constraint firstItem="Sf6-jT-Su8" firstAttribute="centerY" secondItem="KUV-Gv-jto" secondAttribute="centerY" constant="-100" id="2Wf-Fm-jQx"/>
+                            <constraint firstItem="Inf-WY-49c" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="4jF-HE-Jq1"/>
+                            <constraint firstItem="eel-XY-Okk" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="5hj-pg-cKw"/>
+                            <constraint firstItem="Eet-e0-f81" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="9VG-0A-CkS"/>
+                            <constraint firstItem="NnE-7Z-FT7" firstAttribute="centerY" secondItem="KUV-Gv-jto" secondAttribute="centerY" constant="-100" id="9yB-QW-8BM"/>
+                            <constraint firstItem="eel-XY-Okk" firstAttribute="top" secondItem="Eet-e0-f81" secondAttribute="bottom" constant="40" id="BBo-Gt-vfF"/>
+                            <constraint firstItem="pZM-om-uxI" firstAttribute="leading" secondItem="UN8-WR-Ady" secondAttribute="leading" constant="20" id="FBd-IZ-ReW"/>
+                            <constraint firstItem="Uiu-Bo-blL" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="IUE-Y0-xNU"/>
+                            <constraint firstItem="pZM-om-uxI" firstAttribute="top" secondItem="NnE-7Z-FT7" secondAttribute="bottom" constant="111" id="JTy-m2-OTT"/>
+                            <constraint firstItem="Gaj-YJ-c9k" firstAttribute="centerX" secondItem="KUV-Gv-jto" secondAttribute="centerX" id="JV7-YC-abL"/>
+                            <constraint firstItem="Gaj-YJ-c9k" firstAttribute="top" secondItem="Eet-e0-f81" secondAttribute="bottom" constant="8" id="PDD-vb-H44"/>
+                            <constraint firstItem="Eet-e0-f81" firstAttribute="top" secondItem="Uiu-Bo-blL" secondAttribute="bottom" constant="60" id="PgG-bm-K0p"/>
+                            <constraint firstItem="Inf-WY-49c" firstAttribute="top" secondItem="eel-XY-Okk" secondAttribute="bottom" constant="50" id="TNf-4Q-01x"/>
+                            <constraint firstItem="Eet-e0-f81" firstAttribute="centerY" secondItem="KUV-Gv-jto" secondAttribute="centerY" id="WwE-SS-V7h"/>
+                            <constraint firstItem="UN8-WR-Ady" firstAttribute="trailing" secondItem="Sf6-jT-Su8" secondAttribute="trailing" constant="20" id="eNX-vG-i6q"/>
+                            <constraint firstItem="C0W-oM-Ibu" firstAttribute="top" secondItem="Sf6-jT-Su8" secondAttribute="bottom" constant="111" id="k5F-Ga-nz2"/>
+                            <constraint firstItem="NnE-7Z-FT7" firstAttribute="leading" secondItem="UN8-WR-Ady" secondAttribute="leading" constant="20" id="l0z-5F-GqA"/>
+                            <constraint firstItem="UN8-WR-Ady" firstAttribute="trailing" secondItem="C0W-oM-Ibu" secondAttribute="trailing" constant="20" id="mPP-qd-fkn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UN8-WR-Ady"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Multiplayer" id="7Ue-e6-jCl"/>
+                    <navigationItem key="navigationItem" title="Multiplayer" id="7Ue-e6-jCl">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Connect" id="nT4-u3-7a2">
+                                <connections>
+                                    <action selector="connectWithPlayer:" destination="Sd4-pw-qCg" id="00L-Lj-923"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="stop" id="IF4-wI-8Tb">
+                                <connections>
+                                    <action selector="disconnect:" destination="Sd4-pw-qCg" id="Naf-nR-jP6"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activeIndicator" destination="Gaj-YJ-c9k" id="GJY-HA-Y7f"/>
+                        <outlet property="connectButton" destination="nT4-u3-7a2" id="MQD-z4-t7v"/>
+                        <outlet property="disconnectButton" destination="IF4-wI-8Tb" id="g5b-KE-eaJ"/>
+                        <outlet property="first_arm" destination="pZM-om-uxI" id="5UD-g3-9gs"/>
+                        <outlet property="new_gameButton" destination="Inf-WY-49c" id="Yal-iI-x59"/>
+                        <outlet property="opponent_faceLabel" destination="Sf6-jT-Su8" id="FrS-xh-3Ha"/>
+                        <outlet property="scoreLabel" destination="Uiu-Bo-blL" id="R0C-31-8bj"/>
+                        <outlet property="second_arm" destination="eel-XY-Okk" id="ZXV-2T-h3A"/>
+                        <outlet property="thid_arm" destination="C0W-oM-Ibu" id="gog-en-mlW"/>
+                        <outlet property="topLabel" destination="Eet-e0-f81" id="65k-Qm-S9y"/>
+                        <outlet property="user_faceLabel" destination="NnE-7Z-FT7" id="YK9-Ah-q6W"/>
+                        <outletCollection property="armsButtons" destination="pZM-om-uxI" collectionClass="NSMutableArray" id="DAk-RO-Svg"/>
+                        <outletCollection property="armsButtons" destination="eel-XY-Okk" collectionClass="NSMutableArray" id="nve-nb-zwt"/>
+                        <outletCollection property="armsButtons" destination="C0W-oM-Ibu" collectionClass="NSMutableArray" id="hHB-49-6bj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhp-XQ-XY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

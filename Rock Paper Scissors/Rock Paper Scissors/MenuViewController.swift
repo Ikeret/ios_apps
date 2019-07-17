@@ -27,11 +27,12 @@ class MenuViewController: UIViewController {
             }
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         user_face.setTitle(user_stored_face, for: .normal)
+        
         hide_hint()
     }
     
@@ -41,7 +42,7 @@ class MenuViewController: UIViewController {
             textField.placeholder = "Only one emoji"
         }
         
-        let alertActionDone = UIAlertAction(title: "Done", style: .cancel) { (alert) in
+        let alertActionDone = UIAlertAction(title: "Done", style: .default) { (alert) in
             if let new_user_face = alertController.textFields![0].text, new_user_face.count == 1 {
                 self.user_stored_face = new_user_face
                 self.user_face.setTitle(new_user_face, for: .normal)
@@ -49,7 +50,7 @@ class MenuViewController: UIViewController {
             }
         }
         
-        let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
         alertController.addAction(alertActionDone)
         alertController.addAction(alertActionCancel)

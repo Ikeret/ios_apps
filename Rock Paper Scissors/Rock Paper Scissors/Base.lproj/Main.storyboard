@@ -171,23 +171,15 @@
                         <viewLayoutGuide key="safeArea" id="UN8-WR-Ady"/>
                     </view>
                     <navigationItem key="navigationItem" title="Multiplayer" id="7Ue-e6-jCl">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Connect" id="nT4-u3-7a2">
-                                <connections>
-                                    <action selector="connectWithPlayer:" destination="Sd4-pw-qCg" id="00L-Lj-923"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem enabled="NO" systemItem="stop" id="IF4-wI-8Tb">
-                                <connections>
-                                    <action selector="disconnect:" destination="Sd4-pw-qCg" id="Naf-nR-jP6"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="nT4-u3-7a2">
+                            <connections>
+                                <action selector="connectWithPlayer:" destination="Sd4-pw-qCg" id="00L-Lj-923"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activeIndicator" destination="Gaj-YJ-c9k" id="GJY-HA-Y7f"/>
                         <outlet property="connectButton" destination="nT4-u3-7a2" id="MQD-z4-t7v"/>
-                        <outlet property="disconnectButton" destination="IF4-wI-8Tb" id="g5b-KE-eaJ"/>
                         <outlet property="first_arm" destination="pZM-om-uxI" id="5UD-g3-9gs"/>
                         <outlet property="new_gameButton" destination="Inf-WY-49c" id="Yal-iI-x59"/>
                         <outlet property="opponent_faceLabel" destination="Sf6-jT-Su8" id="FrS-xh-3Ha"/>

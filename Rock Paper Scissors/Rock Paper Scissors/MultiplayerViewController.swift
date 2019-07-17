@@ -25,13 +25,14 @@ class MultiplayerViewController: UIViewController, MCBrowserViewControllerDelega
     @IBOutlet weak var new_gameButton: UIButton!
     @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
     @IBOutlet weak var connectButton: UIBarButtonItem!
-    @IBOutlet weak var disconnectButton: UIBarButtonItem!
     
     var user_score = 0
     var opponent_score = 0
     var user_choice: String?
     var opponent_choice: String?
     var is_searching = false
+    
+    var last_opponent: MCPeerID?
     
     var appDelegate: AppDelegate!
     var MPCController: MPCHandler!
@@ -159,18 +160,33 @@ class MultiplayerViewController: UIViewController, MCBrowserViewControllerDelega
         let state = userInfo.object(forKey: "state") as! Int
         
         if state == MCSessionState.connected.rawValue {
-            connectButton.title = "Connected"
+            navigationItem.title = "Connected"
+            connectButton.title = "Disconnect"
             activeIndicator.stopAnimating()
             topLabel.text = "Choose One"
             scoreLabel.isHidden = true
             opponent_faceLabel.isHidden = false
-            opponent_faceLabel.text = (userInfo.object(forKey: "peerID") as? MCPeerID)?.displayName
+            let opponent = userInfo.object(forKey: "peerID") as? MCPeerID
+            if (opponent != last_opponent) {
+                opponent_faceLabel.text = opponent?.displayName
+                user_score = 0
+                opponent_score = 0
+                last_opponent = opponent
+            }
+            else {
+                scoreLabel.isHidden = false
+            }
+            
             arms(isHidden: false)
-            disconnectButton.isEnabled = true
+            
+            
+            if is_searching {
+                MPCController.browser.dismiss(animated: true, completion: nil)
+                is_searching = false
+            }
         }
         else {
             clean_up()
-            disconnectButton.isEnabled = false
         }
     }
     
@@ -187,32 +203,32 @@ class MultiplayerViewController: UIViewController, MCBrowserViewControllerDelega
     }
     
     func clean_up() {
-        user_score = 0
-        opponent_score = 0
         new_game(true)
         connectButton.title = "Connect"
         activeIndicator.startAnimating()
         topLabel.text = "Waiting for opponent..."
         arms(isHidden: true)
+        navigationItem.title =  "Multiplayer"
         user_choice = nil
         opponent_choice = nil
     }
     
     @IBAction func connectWithPlayer(_ sender: UIBarButtonItem) {
-        if MPCController.session != nil {
-            is_searching = true
-            MPCController.setupBrowser()
-            MPCController.browser.maximumNumberOfPeers = 2
-            MPCController.browser.delegate = self
-            self.present(MPCController.browser, animated: true, completion: nil)
+        if sender.title == "Connect" {
+            if MPCController.session != nil {
+                is_searching = true
+                MPCController.setupBrowser()
+                MPCController.browser.maximumNumberOfPeers = 2
+                MPCController.browser.delegate = self
+                self.present(MPCController.browser, animated: true, completion: nil)
+            }
+        }
+        else if sender.title == "Disconnect" {
+            MPCController.session.disconnect()
+            clean_up()
         }
     }
     
-    @IBAction func disconnect(_ sender: UIBarButtonItem) {
-        MPCController.session.disconnect()
-        disconnectButton.isEnabled = false
-        clean_up()
-    }
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         MPCController.browser.dismiss(animated: true, completion: nil)
         is_searching = false

@@ -32,9 +32,7 @@ A single view app which represent the famous game reflected in its name.
 In-game features:
 * different difficulty levels for single player
 * oppotunity to change avatar in the game
- 
-Dev features:
-* add multiplayer over wi-fi
+* multiplayer over wi-fi
 
 ---
 
@@ -42,6 +40,4 @@ Dev features:
 Доступные функции:
 * различные уровни сложности для одиночной игры
 * возможность выбрать аватар для игры
-
-В разработке:
-* добавить мультиплейер по wi-fi
+* мультиплейер по wi-fi

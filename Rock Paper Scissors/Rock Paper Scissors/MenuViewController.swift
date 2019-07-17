@@ -37,7 +37,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func Change_user_face(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Choose your avatar", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Rock Paper Scissors", message: "Choose your avatar", preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "Only one emoji"
         }

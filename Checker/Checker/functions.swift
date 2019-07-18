@@ -25,3 +25,18 @@ func str2col(_ color: String?) -> UIColor? {
         return nil
     }
 }
+
+func getListForName(_ name: String) -> [Item] {
+    if let data = UserDefaults.standard.value(forKey: name) as? Data  {
+        let array = (try? PropertyListDecoder().decode(Array<Item>.self, from: data))!
+        return array
+    } else {
+        return []
+    }
+}
+
+
+func setListForName(_ list: [Item], _ name: String) {
+    UserDefaults.standard.set(try? PropertyListEncoder().encode(list), forKey: name)
+    UserDefaults.standard.synchronize()
+}

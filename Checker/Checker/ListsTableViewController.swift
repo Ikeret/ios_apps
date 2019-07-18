@@ -33,13 +33,19 @@ class ListsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "ListCell")
-        cell.textLabel?.text = ListsArray[indexPath.row].name
+        cell.textLabel?.text = "  \(ListsArray[indexPath.row].name)"
         cell.detailTextLabel?.text = ListsArray[indexPath.row].category
         
         if let color = str2col(ListsArray[indexPath.row].color) {
-            cell.textLabel?.textColor = color
-            cell.detailTextLabel?.textColor = color
+            
+            let mark = UIView(frame: CGRect(x: 10, y: 17.5, width: 10, height: 10))
+            mark.backgroundColor = color
+            mark.layer.cornerRadius = 5
+            mark.layer.masksToBounds = true
+
+            cell.contentView.addSubview(mark)
         }
+        cell.accessoryType = .disclosureIndicator
 
         return cell
     }
@@ -56,8 +62,7 @@ class ListsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ListsArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.conformDeletion(ListsArray[indexPath.row].name, indexPath: indexPath)
         }
     }
     
@@ -76,8 +81,36 @@ class ListsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        CurrentListName = ListsArray[indexPath.row].name
+        performSegue(withIdentifier: "ShowCurrentList", sender: self)
+    }
  
-
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            // MARK: TODO: Edit Action
+        }
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.conformDeletion(ListsArray[indexPath.row].name, indexPath: indexPath)
+        }
+        return [deleteAction, editAction]
+    }
+    
+    func conformDeletion(_ name: String, indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Checker", message: #"Do you realy want to delete "\#(name)" list?"#, preferredStyle: .alert)
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAlertAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            SavedData.removeObject(forKey: name)
+            ListsArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        alertController.addAction(cancelAlertAction)
+        alertController.addAction(deleteAlertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Navigation
 
@@ -85,5 +118,6 @@ class ListsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
     }
 }

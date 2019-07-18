@@ -26,7 +26,7 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func AddList(_ sender: Any) {
-        if nameTextField.text != "" {
+        if !nameTextField.text!.isEmpty {
             ListsArray.append(List(name: nameTextField.text!, category: categoryTextField.text!, color: currentColor))
             dismiss(animated: true, completion: nil)
         } else {

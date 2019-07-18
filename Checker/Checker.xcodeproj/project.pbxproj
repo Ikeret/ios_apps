@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		183E06E122DFBCA90062B067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06E022DFBCA90062B067 /* AppDelegate.swift */; };
-		183E06E322DFBCA90062B067 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06E222DFBCA90062B067 /* FirstViewController.swift */; };
-		183E06E522DFBCA90062B067 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06E422DFBCA90062B067 /* SecondViewController.swift */; };
 		183E06E822DFBCA90062B067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E06E622DFBCA90062B067 /* Main.storyboard */; };
 		183E06EA22DFBCAA0062B067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183E06E922DFBCAA0062B067 /* Assets.xcassets */; };
 		183E06ED22DFBCAA0062B067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E06EB22DFBCAA0062B067 /* LaunchScreen.storyboard */; };
+		183E06F522DFC5460062B067 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F422DFC5460062B067 /* data.swift */; };
+		183E06F722DFC5900062B067 /* ListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F622DFC5900062B067 /* ListsTableViewController.swift */; };
+		183E06F922DFC5AB0062B067 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F822DFC5AB0062B067 /* SettingsTableViewController.swift */; };
+		183E06FB22DFCD5F0062B067 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FA22DFCD5F0062B067 /* functions.swift */; };
+		183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FC22DFDAE30062B067 /* AddListViewController.swift */; };
+		183E070122DFDBAC0062B067 /* SingleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		183E06DD22DFBCA90062B067 /* Checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183E06E022DFBCA90062B067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		183E06E222DFBCA90062B067 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		183E06E422DFBCA90062B067 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		183E06E722DFBCA90062B067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		183E06E922DFBCAA0062B067 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183E06EC22DFBCAA0062B067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		183E06EE22DFBCAA0062B067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183E06F422DFC5460062B067 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
+		183E06F622DFC5900062B067 /* ListsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsTableViewController.swift; sourceTree = "<group>"; };
+		183E06F822DFC5AB0062B067 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		183E06FA22DFCD5F0062B067 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		183E06FC22DFDAE30062B067 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +65,34 @@
 			isa = PBXGroup;
 			children = (
 				183E06E022DFBCA90062B067 /* AppDelegate.swift */,
-				183E06E222DFBCA90062B067 /* FirstViewController.swift */,
-				183E06E422DFBCA90062B067 /* SecondViewController.swift */,
 				183E06E622DFBCA90062B067 /* Main.storyboard */,
+				183E06FE22DFDB3D0062B067 /* FirstPage */,
+				183E070222DFDBD60062B067 /* SecondPage */,
 				183E06E922DFBCAA0062B067 /* Assets.xcassets */,
 				183E06EB22DFBCAA0062B067 /* LaunchScreen.storyboard */,
 				183E06EE22DFBCAA0062B067 /* Info.plist */,
+				183E06F422DFC5460062B067 /* data.swift */,
+				183E06FA22DFCD5F0062B067 /* functions.swift */,
 			);
 			path = Checker;
+			sourceTree = "<group>";
+		};
+		183E06FE22DFDB3D0062B067 /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				183E06F622DFC5900062B067 /* ListsTableViewController.swift */,
+				183E06FC22DFDAE30062B067 /* AddListViewController.swift */,
+				183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */,
+			);
+			name = FirstPage;
+			sourceTree = "<group>";
+		};
+		183E070222DFDBD60062B067 /* SecondPage */ = {
+			isa = PBXGroup;
+			children = (
+				183E06F822DFC5AB0062B067 /* SettingsTableViewController.swift */,
+			);
+			name = SecondPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183E06E522DFBCA90062B067 /* SecondViewController.swift in Sources */,
+				183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */,
+				183E06F922DFC5AB0062B067 /* SettingsTableViewController.swift in Sources */,
+				183E06FB22DFCD5F0062B067 /* functions.swift in Sources */,
+				183E06F722DFC5900062B067 /* ListsTableViewController.swift in Sources */,
 				183E06E122DFBCA90062B067 /* AppDelegate.swift in Sources */,
-				183E06E322DFBCA90062B067 /* FirstViewController.swift in Sources */,
+				183E070122DFDBAC0062B067 /* SingleListTableViewController.swift in Sources */,
+				183E06F522DFC5460062B067 /* data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

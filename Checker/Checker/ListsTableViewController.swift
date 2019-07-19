@@ -9,12 +9,16 @@
 import UIKit
 
 class ListsTableViewController: UITableViewController {
+    var isEditingList = false
+    var editingListIndex : Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         tableView.reloadData()
         let notification = Notification.init(name: Notification.Name(rawValue: "ShowButton"), object: nil, userInfo: nil)
         NotificationCenter.default.post(notification)
@@ -91,6 +95,11 @@ class ListsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
             // MARK: TODO: Edit Action
+            self.isEditingList = true
+            self.editingListIndex = indexPath.row
+            self.performSegue(withIdentifier: "showEditWindow", sender: self)
+            self.isEditingList = false
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         editAction.backgroundColor = .blue
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
@@ -119,6 +128,12 @@ class ListsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showEditWindow", isEditingList {
+            let destinationController = segue.destination as! AddListViewController
+                
+            destinationController.editingListIndex = editingListIndex
+            
+        }
         
     }
 }

@@ -19,6 +19,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var doneButton: UIButton!
     
     var currentColor = "None"
+    var editingListIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +39,39 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
         
-        nameTextField.becomeFirstResponder()
+        if editingListIndex == nil {
+            nameTextField.becomeFirstResponder()
+        } else {
+            setupEdition()
+        }
+    }
+    
+    func setupEdition() {
+        let editingList = ListsArray[editingListIndex!]
+        nameTextField.text = editingList.name
+        categoryTextField.text = editingList.category
+        currentColor = editingList.color
+        if let color = str2col(editingList.color) {
+            colorButton.setTitle(editingList.color, for: .normal)
+            
+            // MARK: Does'nt work
+            colorButton.setTitleColor(color, for: .normal)
+
+        }
     }
     
     
     @IBAction func AddList(_ sender: Any) {
         if !nameTextField.text!.isEmpty {
-            ListsArray.append(List(name: nameTextField.text!, category: categoryTextField.text!, color: currentColor))
+            let newList = List(name: nameTextField.text!, category: categoryTextField.text!, color: currentColor)
+            if editingListIndex != nil {
+                ListsArray[editingListIndex!] = newList
+                editingListIndex = nil
+            }
+            else {
+                ListsArray.insert(newList, at: 0)
+            }
+            
             dismiss(animated: true, completion: nil)
         } else {
             let AlertController = UIAlertController(title: "Checker", message: "Name is required!", preferredStyle: .alert)

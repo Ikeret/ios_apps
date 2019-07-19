@@ -288,12 +288,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Lists" id="H0g-5n-9ot">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="ppN-uU-Rbf">
-                            <color key="tintColor" name="ColorScheme"/>
-                            <connections>
-                                <segue destination="nhP-mo-xmY" kind="presentation" id="pac-Ef-z2V"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="zPH-vu-0mp"/>
+                            <barButtonItem systemItem="compose" id="ppN-uU-Rbf">
+                                <color key="tintColor" name="ColorScheme"/>
+                                <connections>
+                                    <segue destination="nhP-mo-xmY" kind="presentation" identifier="showEditWindow" id="pac-Ef-z2V"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="0Du-FU-SWX" kind="show" identifier="ShowCurrentList" id="EgJ-xb-rD8"/>
@@ -547,7 +550,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nhP-mo-xmY" kind="presentation" id="pIZ-Dp-4CB"/>
+                                    <segue destination="nhP-mo-xmY" kind="presentation" identifier="" id="pIZ-Dp-4CB"/>
                                 </connections>
                             </button>
                         </subviews>

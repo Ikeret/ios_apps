@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+let Colors: [String] = ["Red", "Green", "Blue", "Cyan"]
 func str2col(_ color: String?) -> UIColor? {
     if color == nil { return nil }
     
@@ -17,8 +18,8 @@ func str2col(_ color: String?) -> UIColor? {
         return .blue
     case "red":
         return .red
-    case "yellow":
-        return .yellow
+    case "cyan":
+        return .cyan
     case "green":
         return .green
     default:

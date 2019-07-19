@@ -16,8 +16,20 @@ class FirstPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(containerView.subviews.count)
-        // Do any additional setup after loading the view.
+        
+        setupAddButton()
+    }
+    
+    func setupAddButton() {
+        let deviceName = UIDevice.current.name
+        
+        for model in deprecatedModels {
+            if deviceName.contains(model) {
+                addButton.isHidden = true
+                return
+            }
+        }
+        
         let notificationHide = Notification.Name(rawValue: "HideButton")
         let notificationShow = Notification.Name(rawValue: "ShowButton")
         NotificationCenter.default.addObserver(self, selector: #selector(hideButton), name: notificationHide, object: nil)
@@ -35,13 +47,13 @@ class FirstPageViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

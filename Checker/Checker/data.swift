@@ -11,8 +11,6 @@ import UIKit
 
 let SavedData = UserDefaults.standard
 
-let Colors: [String] = ["Black", "Red", "Green", "Yellow", "Blue"]
-
 struct List : Codable {
     var name = String()
     var category = String()
@@ -58,20 +56,20 @@ var Tasks: [String]
 }
 
 
-var AutoSorting: Bool
-{
+var Settings: [String : Bool] {
     set {
-        SavedData.set(newValue, forKey: "AutoSorting")
+        SavedData.set(newValue, forKey: "CheckerSettings")
         SavedData.synchronize()
     }
     get {
-        if let value = SavedData.value(forKey: "AutoSorting") as? Bool{
-            return value
+        if let array = SavedData.dictionary(forKey: "CheckerSettings") as? [String : Bool] {
+            return array
         }
-        else {
-            SavedData.set(true, forKey: "AutoSorting")
-            SavedData.synchronize()
-            return true
-        }
+        let defaults = ["AutoSorting": true, "RememberingWords": true]
+        //SavedData.set(defaults, forKey: "CheckerSettings")
+        //SavedData.synchronize()
+        return defaults
     }
 }
+
+var deprecatedModels = ["5", "SE"]

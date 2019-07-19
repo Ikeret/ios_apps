@@ -38,12 +38,13 @@ class SingleListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        
         let notification = Notification.init(name: Notification.Name(rawValue: "HideButton"), object: nil, userInfo: nil)
         NotificationCenter.default.post(notification)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if AutoSorting {
+        if Settings["AutoSorting"] ?? true {
             sortList()
             tableView.reloadData()
         }
@@ -62,8 +63,12 @@ class SingleListTableViewController: UITableViewController {
         for task in CurrentList {
             if task.checked { res += 1 }
         }
+        
         let progress: Float = Float(res) / Float(countTasks)
         progressView.setProgress(progress, animated: true)
+        if res == 0 {
+            progressView.isHidden = true
+        }
     }
     
     // MARK: - Table view data source
@@ -145,7 +150,7 @@ class SingleListTableViewController: UITableViewController {
         
         
         
-        if AutoSorting {
+        if Settings["AutoSorting"] ?? true {
             sortingWhenChecked(indexPath)
         } else {
             CurrentList[indexPath.row].checked = !CurrentList[indexPath.row].checked
@@ -169,13 +174,17 @@ class SingleListTableViewController: UITableViewController {
         } else {
             var lastUncheck = CurrentList.lastIndex(where: { (item) -> Bool in
                 return !item.checked
-            }) ?? 0
-            if lastUncheck != 0 { lastUncheck += 1}
-            let destination = IndexPath(row: lastUncheck, section: 0)
+            })
+            if lastUncheck == nil {
+                lastUncheck = 0
+            } else {
+                lastUncheck! += 1
+            }
+            let destination = IndexPath(row: lastUncheck!, section: 0)
             tableView.moveRow(at: indexPath, to: destination)
             cell.checked = false
             CurrentList.remove(at: indexPath.row)
-            CurrentList.insert(cell, at: lastUncheck)
+            CurrentList.insert(cell, at: lastUncheck!)
             tableView.reloadRows(at: [destination], with: .automatic)
         }
     }
@@ -225,6 +234,7 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
         
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "Enter the task"
+        searchController.searchBar.tintColor = UIColor(named: "ColorScheme")
         searchController.searchBar.setImage(UIImage(), for: .search, state: .normal)
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.returnKeyType = .done
@@ -244,8 +254,21 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-        displayResults()
+        
+        for view in resultsController.view.subviews {
+            view.removeFromSuperview()
+        }
+        
+        let ShouldDisplay = Settings["RememberingWords"] ?? true
+        if ShouldDisplay {
+            searchController.obscuresBackgroundDuringPresentation = true
+            filterContentForSearchText(searchController.searchBar.text!)
+            displayResults()
+        }
+        else {
+            searchController.obscuresBackgroundDuringPresentation = false
+            
+        }
         
         
     }
@@ -261,9 +284,11 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
         } else {
             name = searchController.searchBar.text!
         }
-        Tasks.append(name)
-        Tasks = Array(Set(Tasks))
-        Tasks.sort { $0 < $1 }
+        if Settings["RememberingWords"] ?? true {
+            Tasks.append(name)
+            Tasks = Array(Set(Tasks))
+            Tasks.sort()
+        }
         CurrentList.insert(Item(name: name, checked: false), at: 0)
         updateProgress()
         searchController.searchResultsController?.dismiss(animated: true, completion: {
@@ -279,7 +304,7 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
                 return name.lowercased().contains(searchText.lowercased())
             })
         }
-        filteredTasks.sort { $0 < $1 }
+        filteredTasks.sort()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -288,9 +313,6 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
     
     
     func displayResults() {
-        for view in resultsController.view.subviews {
-            view.removeFromSuperview()
-        }
         
         let window = UIApplication.shared.keyWindow
         let topPadding = (window?.safeAreaInsets.top)!

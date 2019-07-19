@@ -11,12 +11,10 @@ import UIKit
 class ListsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         tableView.reloadData()
         let notification = Notification.init(name: Notification.Name(rawValue: "ShowButton"), object: nil, userInfo: nil)
         NotificationCenter.default.post(notification)

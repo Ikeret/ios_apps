@@ -8,20 +8,31 @@
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class AddListViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textLabels: [UILabel]!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var viewContainer: UIView!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
-    var currentColor = "Black"
+    var currentColor = "None"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView.dataSource = self
-        pickerView.delegate = self
+        colorButton.layer.cornerRadius = 5
+        colorButton.layer.borderWidth = 0.1
+        colorButton.layer.borderColor = UIColor.gray.cgColor
+        
+        doneButton.layer.cornerRadius = 5
+        doneButton.layer.borderWidth = 0.1
+        doneButton.layer.borderColor = UIColor.gray.cgColor
+        
+        viewContainer.layer.cornerRadius = 10
+        viewContainer.layer.borderWidth = 0.1
+        viewContainer.layer.borderColor = UIColor.gray.cgColor
         
     }
     
@@ -37,28 +48,50 @@ class AddListViewController: UIViewController {
         }
     }
     
+    @IBAction func changeColor(_ sender: Any) {
+        presentColors()
+    }
+    
     @IBAction func CancelAdding(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-}
-
-extension AddListViewController : UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    
+    @IBAction func nameEndEditing(_ sender: Any) {
+        
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Colors.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Colors[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentColor = Colors[row]
-        for label in textLabels {
-            label.textColor = str2col(currentColor)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if (textField == self.nameTextField) {
+            self.categoryTextField.becomeFirstResponder()
         }
+        return true
+    }
+    
+    func presentColors() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        for color in Colors {
+            let colorAction = UIAlertAction(title: color, style: .default) { (action) in
+                self.currentColor = color
+                self.colorButton.setTitle(color, for: .normal)
+                self.colorButton.setTitleColor(str2col(color), for: .normal)
+            }
+            if currentColor == color {
+                colorAction.isEnabled = false
+            }
+            alertController.addAction(colorAction)
+        }
+        
+        let defaultColorAction = UIAlertAction(title: "None", style: .default) { (action) in
+            self.colorButton.setTitle("None", for: .normal)
+            self.colorButton.setTitleColor(UIColor(named: "ColorScheme"), for: .normal)
+            self.currentColor = "None"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(defaultColorAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

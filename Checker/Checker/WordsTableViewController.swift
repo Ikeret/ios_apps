@@ -1,47 +1,67 @@
 //
-//  SettingsTableViewController.swift
+//  WordsTableViewController.swift
 //  Checker
 //
-//  Created by Сергей Коршунов on 18/07/2019.
+//  Created by Сергей Коршунов on 19/07/2019.
 //  Copyright © 2019 Sergey Korshunov. All rights reserved.
 //
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class WordsTableViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var autosortingValue: UISwitch!
-    @IBOutlet weak var rememberingwordValue: UISwitch!
-    @IBOutlet weak var ShowWords: UITableViewCell!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        autosortingValue.isOn = Settings["AutoSorting"] ?? true
-        rememberingwordValue.isOn = Settings["RememberingWords"] ?? true
-        ShowWords.isHidden = !(Settings["RememberingWords"] ?? true)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+ 
+        textField.placeholder = "Enter the name"
+        addButton.layer.cornerRadius = 5
+        addButton.layer.borderWidth = 0.1
+        addButton.layer.borderColor = UIColor.gray.cgColor
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.tableFooterView = UIView(frame: .zero)
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    @IBAction func buttonAction(_ sender: Any) {
+        view.endEditing(true)
+        
     }
     
-    @IBAction func autosortingSwitch(_ sender: UISwitch) {
-        Settings["AutoSorting"] = sender.isOn
+    @IBAction private func textFieldEndEditing(_ sender: Any) {
+        if textField.text != "" {
+            Tasks.append(textField.text!)
+            Tasks = Array(Set(Tasks))
+            Tasks.sort()
+            tableView.reloadData()
+            textField.text = ""
+        }
     }
     
-    @IBAction func showWordsSwitch(_ sender: UISwitch) {
-        ShowWords.isHidden = !sender.isOn
-        Settings["RememberingWords"] = sender.isOn
-    }
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 20))
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
+    
+    @IBAction func clearAll(_ sender: Any) {
+        let alertController = UIAlertController(title: "Checker", message: "Do you really want to delete all?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            
+            var rows : [IndexPath] = []
+            for i in 0..<Tasks.count {
+                rows.append(IndexPath(row: i, section: 0))
+            }
+            Tasks = []
+            self.tableView.deleteRows(at: rows, with: .fade)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
     }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,39 +71,39 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return Tasks.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "WordCell")
+        cell.textLabel?.text = Tasks[indexPath.row]
         // Configure the cell...
 
         return cell
     }
-    */
-
-    /*
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            Tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
     }
-    */
-
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -91,13 +111,13 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
-        return true
+        return false
     }
-    */
+ 
 
     /*
     // MARK: - Navigation

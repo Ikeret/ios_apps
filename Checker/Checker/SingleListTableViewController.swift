@@ -15,6 +15,7 @@ class SingleListTableViewController: UITableViewController {
         get { return getListForName(CurrentListName!) }
     }
     
+    @IBOutlet weak var progressView: UIProgressView!
     var resultsController = UIViewController()
     var searchController = UISearchController()
     
@@ -33,12 +34,38 @@ class SingleListTableViewController: UITableViewController {
         searchController = UISearchController(searchResultsController: resultsController)
         performSearchController()
         
+        updateProgress()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let notification = Notification.init(name: Notification.Name(rawValue: "HideButton"), object: nil, userInfo: nil)
+        NotificationCenter.default.post(notification)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if AutoSorting {
+            sortList()
+            tableView.reloadData()
+        }
+    }
     
-
+    func updateProgress() {
+        let countTasks = CurrentList.count
+        if countTasks == 0 {
+            progressView.isHidden = true
+            return
+        } else {
+            progressView.isHidden = false
+        }
+        
+        var res = 0
+        for task in CurrentList {
+            if task.checked { res += 1 }
+        }
+        let progress: Float = Float(res) / Float(countTasks)
+        progressView.setProgress(progress, animated: true)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,6 +108,7 @@ class SingleListTableViewController: UITableViewController {
         if editingStyle == .delete {
             CurrentList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            updateProgress()
         }
     }
     
@@ -99,11 +127,13 @@ class SingleListTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            // MARK: TODO: Edit task name
+            self.presentAlert(indexPath: indexPath)
         }
+        editAction.backgroundColor = .blue
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             self.CurrentList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.updateProgress()
         }
         return [deleteAction, editAction]
     }
@@ -111,16 +141,71 @@ class SingleListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CurrentList[indexPath.row].checked = !CurrentList[indexPath.row].checked
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        
         if AutoSorting {
-            CurrentList.sort { (first, second) -> Bool in
-                return second.checked
-            }
+            sortingWhenChecked(indexPath)
+        } else {
+            CurrentList[indexPath.row].checked = !CurrentList[indexPath.row].checked
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
-        tableView.reloadData()
+        
+        updateProgress()
         
     }
+    
+    func sortingWhenChecked(_ indexPath: IndexPath) {
+        var cell = CurrentList[indexPath.row]
+
+        if !cell.checked {
+            cell.checked = true
+            let endOfList = IndexPath(row: CurrentList.count - 1, section: 0)
+            tableView.moveRow(at: indexPath, to: endOfList)
+            CurrentList.remove(at: indexPath.row)
+            CurrentList.insert(cell, at: CurrentList.count)
+            tableView.reloadRows(at: [endOfList], with: .automatic)
+        } else {
+            var lastUncheck = CurrentList.lastIndex(where: { (item) -> Bool in
+                return !item.checked
+            }) ?? 0
+            if lastUncheck != 0 { lastUncheck += 1}
+            let destination = IndexPath(row: lastUncheck, section: 0)
+            tableView.moveRow(at: indexPath, to: destination)
+            cell.checked = false
+            CurrentList.remove(at: indexPath.row)
+            CurrentList.insert(cell, at: lastUncheck)
+            tableView.reloadRows(at: [destination], with: .automatic)
+        }
+    }
+    
+    func sortList() {
+        CurrentList.sort { (first, second) -> Bool in
+            return second.checked
+        }
+    }
+    
+    func presentAlert(indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Edit task", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let doneAction = UIAlertAction(title: "Done", style: .default) { (action) in
+            let text = alertController.textFields![0].text!
+            if !text.isEmpty {
+                self.CurrentList[indexPath.row].name = text
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        alertController.addAction(doneAction)
+        alertController.addAction(cancelAction)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "name"
+        }
+        present(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -160,61 +245,80 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
     
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
-        for view in resultsController.view.subviews {
-            view.removeFromSuperview()
-        }
-        var y : CGFloat = 150.0
+        displayResults()
         
-        let button = UIButton(frame: CGRect(x: 20, y: y, width: UIScreen.main.bounds.width - 40, height: 40))
-        button.backgroundColor = .white
-        button.setTitle("Add new", for: .normal)
-        button.setTitleColor(.green, for: .normal)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
-        button.alpha = 0.8
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        y += 50.0
-        resultsController.view.addSubview(button)
         
-        for name in filteredTasks {
-            let label = UILabel(frame: CGRect(x: 20, y: y, width: UIScreen.main.bounds.width - 40, height: 40))
-            label.text = name
-            label.textAlignment = .center
-            label.layer.cornerRadius = 15
-            label.layer.masksToBounds = true
-            label.backgroundColor = .white
-            label.alpha = 0.8
-            resultsController.view.addSubview(label)
-            y += 50.0
-        }
     }
     
-    @objc func buttonAction(sender: Any?) {
-        let name = searchController.searchBar.text!
+    @objc func buttonAction(sender: UIButton?) {
+        var name = ""
+        if let button = sender, sender?.tag != 1 {
+            name = button.title(for: .normal)!
+            if name != searchController.searchBar.text {
+                searchController.searchBar.text = name
+                return
+            }
+        } else {
+            name = searchController.searchBar.text!
+        }
         Tasks.append(name)
+        Tasks = Array(Set(Tasks))
         Tasks.sort { $0 < $1 }
-        CurrentList.append(Item(name: name, checked: false))
+        CurrentList.insert(Item(name: name, checked: false), at: 0)
+        updateProgress()
         searchController.searchResultsController?.dismiss(animated: true, completion: {
             self.searchController.searchBar.text?.removeAll()
-            self.tableView.reloadData()
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        if searchbarIsEmpty { filteredTasks = Tasks}
+        if searchbarIsEmpty { filteredTasks = Tasks }
         else {
             filteredTasks = Tasks.filter({ (name) -> Bool in
                 return name.lowercased().contains(searchText.lowercased())
             })
         }
+        filteredTasks.sort { $0 < $1 }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         buttonAction(sender: nil)
     }
     
-    func didPresentSearchController(_ searchController: UISearchController) {
-        updateSearchResults(for: searchController)
+    
+    func displayResults() {
+        for view in resultsController.view.subviews {
+            view.removeFromSuperview()
+        }
+        
+        let window = UIApplication.shared.keyWindow
+        let topPadding = (window?.safeAreaInsets.top)!
+        var y : CGFloat = topPadding + 110.0
+        let button = UIButton(frame: CGRect(x: 20, y: y, width: UIScreen.main.bounds.width - 40, height: 40))
+        button.backgroundColor = .white
+        button.setTitle("Add New", for: .normal)
+        button.setTitleColor(UIColor(named: "ColorScheme"), for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.layer.cornerRadius = 15
+        button.alpha = 0.8
+        button.tag = 1
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        y += 50.0
+        resultsController.view.addSubview(button)
+
+        for name in filteredTasks {
+            let task = UIButton(frame: CGRect(x: 20, y: y, width: UIScreen.main.bounds.width - 40, height: 40))
+            task.setTitle(name, for: .normal)
+            task.setTitleColor(.black, for: .normal)
+            task.titleLabel!.textAlignment = .center
+            task.layer.cornerRadius = 15
+            task.backgroundColor = .white
+            task.alpha = 0.8
+            task.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+
+            resultsController.view.addSubview(task)
+            y += 50.0
+        }
     }
 }

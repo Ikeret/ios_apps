@@ -165,12 +165,21 @@ class SingleListTableViewController: UITableViewController {
         var cell = CurrentList[indexPath.row]
 
         if !cell.checked {
+            var firstChecked = CurrentList.firstIndex(where: { (item) -> Bool in
+                return item.checked
+            })
+            if firstChecked == nil {
+                firstChecked = CurrentList.count - 1
+            } else {
+                firstChecked! -= 1
+            }
+            let destination = IndexPath(row: firstChecked!, section: 0)
+            tableView.moveRow(at: indexPath, to: destination)
             cell.checked = true
-            let endOfList = IndexPath(row: CurrentList.count - 1, section: 0)
-            tableView.moveRow(at: indexPath, to: endOfList)
             CurrentList.remove(at: indexPath.row)
-            CurrentList.insert(cell, at: CurrentList.count)
-            tableView.reloadRows(at: [endOfList], with: .automatic)
+            CurrentList.insert(cell, at: firstChecked!)
+            tableView.reloadRows(at: [destination], with: .automatic)
+            
         } else {
             var lastUncheck = CurrentList.lastIndex(where: { (item) -> Bool in
                 return !item.checked

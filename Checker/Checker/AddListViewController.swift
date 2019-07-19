@@ -34,7 +34,13 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         viewContainer.layer.borderWidth = 0.1
         viewContainer.layer.borderColor = UIColor.gray.cgColor
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        nameTextField.becomeFirstResponder()
     }
+    
     
     @IBAction func AddList(_ sender: Any) {
         if !nameTextField.text!.isEmpty {
@@ -62,7 +68,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if (textField == self.nameTextField) {
+        if textField == self.nameTextField, categoryTextField.text == "", nameTextField.text != "" {
             self.categoryTextField.becomeFirstResponder()
         }
         return true

@@ -15,10 +15,13 @@ class SingleListTableViewController: UITableViewController {
     }
     
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     var resultsController = UIViewController()
     var searchController = UISearchController()
     
     var filteredTasks = [String]()
+    var rowIsSelected = false
     
     var searchbarIsEmpty: Bool {
         guard let text = searchController.searchBar.text  else {
@@ -37,6 +40,8 @@ class SingleListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        deleteButton.layer.cornerRadius = 10
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +54,8 @@ class SingleListTableViewController: UITableViewController {
     func updateProgress() {
         let countTasks = CurrentList.count
         if countTasks == 0 {
-            progressView.isHidden = true
+            hideProgress()
+            deleteButton.isHidden = true
             return
         } else {
             progressView.isHidden = false
@@ -59,12 +65,42 @@ class SingleListTableViewController: UITableViewController {
         for task in CurrentList {
             if task.checked { res += 1 }
         }
+     
+        deleteButton.isHidden = res < 5
         
         let progress: Float = Float(res) / Float(countTasks)
-        progressView.setProgress(progress, animated: true)
-        if res == 0 {
-            progressView.isHidden = true
+        if res != 0 {
+            progressView.setProgress(progress, animated: true)
+        } else {
+            hideProgress()
         }
+    }
+    
+    @IBAction func deleteComplited(_ sender: Any) {
+        var i = 0
+        var index : [IndexPath] = []
+        CurrentList.removeAll { (task) -> Bool in
+            if task.checked {
+                index.append(IndexPath(row: i, section: 0))
+            }
+            i += 1
+            return task.checked
+        }
+        tableView.deleteRows(at: index, with: .automatic)
+        updateProgress()
+    }
+    
+    func hideProgress() {
+        if progressView.progress != 0.0 {
+            progressView.setProgress(0, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.progressView.isHidden = true
+            }
+        } else {
+            progressView.isHidden = true
+
+        }
+        
     }
     
     // MARK: - Table view data source
@@ -116,7 +152,7 @@ class SingleListTableViewController: UITableViewController {
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
-        return true
+        return !(Settings["AutoSorting"] ?? true)
     }
  
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -137,6 +173,8 @@ class SingleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if rowIsSelected { return }
+        rowIsSelected = true
         
         
         if Settings["AutoSorting"] ?? true {
@@ -190,8 +228,8 @@ class SingleListTableViewController: UITableViewController {
             self.tableView.moveRow(at: indexPath, to: destination)
             self.CurrentList.remove(at: indexPath.row)
             self.CurrentList.insert(cell, at: destinationIndex!)
-//            self.tableView.reloadRows(at: [destination], with: .automatic)
             self.updateProgress()
+            self.rowIsSelected = false
         }
     }
     
@@ -266,7 +304,7 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
         }
         
         let ShouldDisplay = Settings["RememberingWords"] ?? true
-        if ShouldDisplay {
+        if ShouldDisplay, Tasks.count != 0 {
             searchController.obscuresBackgroundDuringPresentation = true
             filterContentForSearchText(searchController.searchBar.text!)
             displayResults()
@@ -290,6 +328,8 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
         } else {
             name = searchController.searchBar.text!
         }
+        searchController.searchBar.text?.removeAll()
+
         if Settings["RememberingWords"] ?? true {
             Tasks.append(name)
             Tasks = Array(Set(Tasks))
@@ -298,7 +338,6 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
         CurrentList.insert(Item(name: name, checked: false), at: 0)
         updateProgress()
         searchController.searchResultsController?.dismiss(animated: true, completion: {
-            self.searchController.searchBar.text?.removeAll()
             self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
     }
@@ -347,6 +386,7 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
 
             resultsController.view.addSubview(task)
             y += 50.0
+            if y > UIScreen.main.bounds.height { return }
         }
     }
 }

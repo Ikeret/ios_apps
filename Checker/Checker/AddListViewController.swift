@@ -19,7 +19,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var topDoneButton: UIBarButtonItem!
     
-    var currentColor = "None"
+    var currentColor = ""
     var editingListIndex: Int?
     
     override func viewDidLoad() {
@@ -104,7 +104,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         if textField == self.nameTextField, categoryTextField.text == "", nameTextField.text != "" {
             self.categoryTextField.becomeFirstResponder()
         }
-        if textField == self.categoryTextField {
+        if textField == self.categoryTextField, currentColor == "" {
             presentColors()
         }
         return true

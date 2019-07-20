@@ -161,6 +161,7 @@ class ListsTableViewController: UITableViewController {
             self.editingListIndex = indexPath.section
             self.performSegue(withIdentifier: "showEditWindow", sender: self)
             self.isEditingList = false
+            complition(true)
         }
         editAction.backgroundColor = .blue
         
@@ -171,6 +172,7 @@ class ListsTableViewController: UITableViewController {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, complition) in
             self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
+            complition(false)
         }
         
         // MARK: TODO: Action images
@@ -181,6 +183,7 @@ class ListsTableViewController: UITableViewController {
     func conformDeletion(_ name: String, indexPath: IndexPath) {
         let alertController = UIAlertController(title: "Checker", message: #"Do you realy want to delete "\#(name)" list?"#, preferredStyle: .alert)
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         let deleteAlertAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             SavedData.removeObject(forKey: name)
             ListsArray.remove(at: indexPath.section)
@@ -192,7 +195,7 @@ class ListsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return true 
     }
     
     // MARK: - Navigation

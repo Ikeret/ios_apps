@@ -8,53 +8,99 @@
 
 import UIKit
 
+protocol DetailTableDelegate {
+    func hideButton()
+    func showButton()
+}
+
 class ListsTableViewController: UITableViewController {
     var isEditingList = false
-    var editingListIndex : Int!
+    var editingListIndex : Int?
+    var delegate: DetailTableDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if tableView.numberOfSections != ListsArray.count {
+            tableView.insertSections(IndexSet(arrayLiteral: 0), with: .automatic)
+        }
+        else if let index = editingListIndex {
+            tableView.reloadSections(IndexSet(arrayLiteral: index), with: .automatic)
+            editingListIndex = nil
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        let notification = Notification.init(name: Notification.Name(rawValue: "ShowButton"), object: nil, userInfo: nil)
-        NotificationCenter.default.post(notification)
+        if let objectDelegate = delegate {
+            objectDelegate.showButton()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let objectDelegate = delegate {
+            objectDelegate.hideButton()
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return ListsArray.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListsArray.count
+        return 1
         
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "ListCell")
-        cell.textLabel?.text = "  \(ListsArray[indexPath.row].name)"
-        cell.detailTextLabel?.text = ListsArray[indexPath.row].category
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
+        cell.titleLabel.text = ListsArray[indexPath.section].name
+        cell.categoryLabel.text = ListsArray[indexPath.section].category
         
-        if let color = str2col(ListsArray[indexPath.row].color) {
-            
-            let mark = UIView(frame: CGRect(x: 10, y: 17.5, width: 10, height: 10))
-            mark.backgroundColor = color
-            mark.layer.cornerRadius = mark.frame.size.width / 2
-
-            cell.contentView.addSubview(mark)
+        
+        var space : CGFloat = 16.0
+        if cell.categoryLabel.text == "" {
+            space += 19
         }
-        cell.accessoryType = .disclosureIndicator
 
+        
+        if let color = str2col(ListsArray[indexPath.section].color) {
+            cell.colorIndicator.backgroundColor = color
+        }
+        else {
+            if space == 16.0 {
+                cell.colorIndicator.backgroundColor = .lightGray
+            } else {
+                cell.colorIndicator.backgroundColor = .clear
+                space += 5
+            }
+        }
+        
+        cell.topConstrain.constant = space
+    
         return cell
     }
- 
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15.0
+    }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 15))
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -66,17 +112,18 @@ class ListsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.conformDeletion(ListsArray[indexPath.row].name, indexPath: indexPath)
+            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
         }
     }
+    
     
 
     
 //    // Override to support rearranging the table view.
 //    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-//        let item = ListsArray[fromIndexPath.row]
-//        ListsArray.remove(at: fromIndexPath.row)
-//        ListsArray.insert(item, at: to.row)
+//        let item = ListsArray[fromIndexPath.section]
+//        ListsArray.remove(at: fromIndexPath.section)
+//        ListsArray.insert(item, at: to.section)
 //    }
  
 
@@ -88,24 +135,47 @@ class ListsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        CurrentListName = ListsArray[indexPath.row].name
+        CurrentListName = ListsArray[indexPath.section].name
         performSegue(withIdentifier: "ShowCurrentList", sender: self)
     }
  
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            // MARK: TODO: Edit Action
             self.isEditingList = true
-            self.editingListIndex = indexPath.row
+            self.editingListIndex = indexPath.section
             self.performSegue(withIdentifier: "showEditWindow", sender: self)
             self.isEditingList = false
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         editAction.backgroundColor = .blue
+        
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            self.conformDeletion(ListsArray[indexPath.row].name, indexPath: indexPath)
+            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
         }
         return [deleteAction, editAction]
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, complition) in
+            self.isEditingList = true
+            self.editingListIndex = indexPath.section
+            self.performSegue(withIdentifier: "showEditWindow", sender: self)
+            self.isEditingList = false
+        }
+        editAction.backgroundColor = .blue
+        
+        let pinAction = UIContextualAction(style: .normal, title: "Pin") { (action, view, complition) in
+            // MARK: TODO: Pin action
+        }
+        pinAction.backgroundColor = .orange
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, complition) in
+            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
+        }
+        
+        // MARK: TODO: Action images
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction, pinAction])
     }
     
     func conformDeletion(_ name: String, indexPath: IndexPath) {
@@ -113,14 +183,17 @@ class ListsTableViewController: UITableViewController {
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let deleteAlertAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             SavedData.removeObject(forKey: name)
-            ListsArray.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            ListsArray.remove(at: indexPath.section)
+            self.tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
         }
         alertController.addAction(cancelAlertAction)
         alertController.addAction(deleteAlertAction)
         present(alertController, animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     // MARK: - Navigation
 

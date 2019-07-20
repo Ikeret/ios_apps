@@ -71,5 +71,3 @@ var Settings: [String : Bool] {
         return defaults
     }
 }
-
-var deprecatedModels = ["5", "SE"]

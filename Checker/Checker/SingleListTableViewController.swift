@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SingleListTableViewController: UITableViewController {
     var CurrentList: [Item] {
         set { setListForName(newValue, CurrentListName!) }
@@ -38,9 +37,6 @@ class SingleListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-        let notification = Notification.init(name: Notification.Name(rawValue: "HideButton"), object: nil, userInfo: nil)
-        NotificationCenter.default.post(notification)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,16 +81,9 @@ class SingleListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ItemCell")
-        cell.textLabel?.text = CurrentList[indexPath.row].name
-        if (CurrentList[indexPath.row].checked) {
-            cell.accessoryType = .checkmark
-        }
-        else {
-            cell.accessoryType = .none
-        }
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! TaskTableViewCell
+        cell.TitleLabel.text = CurrentList[indexPath.row].name
+        cell.CheckBox.on = CurrentList[indexPath.row].checked
 
         return cell
     }
@@ -153,48 +142,56 @@ class SingleListTableViewController: UITableViewController {
         if Settings["AutoSorting"] ?? true {
             sortingWhenChecked(indexPath)
         } else {
+            let cell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
             CurrentList[indexPath.row].checked = !CurrentList[indexPath.row].checked
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+
+            cell.CheckBox.setOn(CurrentList[indexPath.row].checked, animated: true)
+            updateProgress()
         }
         
-        updateProgress()
+        
         
     }
     
     func sortingWhenChecked(_ indexPath: IndexPath) {
         var cell = CurrentList[indexPath.row]
-
+        let tableCell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
+        
+        var destinationIndex : Int?
+        
         if !cell.checked {
-            var firstChecked = CurrentList.firstIndex(where: { (item) -> Bool in
+            destinationIndex = CurrentList.firstIndex(where: { (item) -> Bool in
                 return item.checked
             })
-            if firstChecked == nil {
-                firstChecked = CurrentList.count - 1
+            if destinationIndex == nil {
+                destinationIndex = CurrentList.count - 1
             } else {
-                firstChecked! -= 1
+                destinationIndex! -= 1
             }
-            let destination = IndexPath(row: firstChecked!, section: 0)
-            tableView.moveRow(at: indexPath, to: destination)
-            cell.checked = true
-            CurrentList.remove(at: indexPath.row)
-            CurrentList.insert(cell, at: firstChecked!)
-            tableView.reloadRows(at: [destination], with: .automatic)
             
         } else {
-            var lastUncheck = CurrentList.lastIndex(where: { (item) -> Bool in
+            destinationIndex = CurrentList.lastIndex(where: { (item) -> Bool in
                 return !item.checked
             })
-            if lastUncheck == nil {
-                lastUncheck = 0
+            if destinationIndex == nil {
+                destinationIndex = 0
             } else {
-                lastUncheck! += 1
+                destinationIndex! += 1
             }
-            let destination = IndexPath(row: lastUncheck!, section: 0)
-            tableView.moveRow(at: indexPath, to: destination)
-            cell.checked = false
-            CurrentList.remove(at: indexPath.row)
-            CurrentList.insert(cell, at: lastUncheck!)
-            tableView.reloadRows(at: [destination], with: .automatic)
+        }
+        
+        cell.checked = !cell.checked
+        tableCell.CheckBox.setOn(cell.checked, animated: true)
+        
+        let destination = IndexPath(row: destinationIndex!, section: 0)
+        let animationDuration = Double(tableCell.CheckBox!.animationDuration)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+            self.tableView.moveRow(at: indexPath, to: destination)
+            self.CurrentList.remove(at: indexPath.row)
+            self.CurrentList.insert(cell, at: destinationIndex!)
+//            self.tableView.reloadRows(at: [destination], with: .automatic)
+            self.updateProgress()
         }
     }
     
@@ -205,7 +202,7 @@ class SingleListTableViewController: UITableViewController {
     }
     
     func presentAlert(indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Edit task", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Checker", message: "Enter new name:", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let doneAction = UIAlertAction(title: "Done", style: .default) { (action) in

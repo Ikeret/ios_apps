@@ -17,6 +17,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var topDoneButton: UIBarButtonItem!
     
     var currentColor = "None"
     var editingListIndex: Int?
@@ -58,6 +59,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             colorButton.setTitleColor(color, for: .normal)
 
         }
+        topDoneButton.isEnabled = true
+        doneButton.isEnabled = true
     }
     
     
@@ -65,6 +68,11 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         if !nameTextField.text!.isEmpty {
             let newList = List(name: nameTextField.text!, category: categoryTextField.text!, color: currentColor)
             if editingListIndex != nil {
+                let tasks = getListForName(ListsArray[editingListIndex!].name)
+                SavedData.removeObject(forKey: ListsArray[editingListIndex!].name)
+                setListForName(tasks, newList.name)
+                
+                
                 ListsArray[editingListIndex!] = newList
                 editingListIndex = nil
             }
@@ -89,17 +97,28 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func nameEndEditing(_ sender: Any) {
-        
-    }
+ 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == self.nameTextField, categoryTextField.text == "", nameTextField.text != "" {
             self.categoryTextField.becomeFirstResponder()
         }
+        if textField == self.categoryTextField {
+            presentColors()
+        }
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == nameTextField, range.lowerBound == 0  {
+            topDoneButton.isEnabled = !string.isEmpty
+            doneButton.isEnabled = !string.isEmpty
+        }
+        return true
+    }
+    
+
     
     func presentColors() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

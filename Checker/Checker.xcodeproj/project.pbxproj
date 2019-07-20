@@ -17,8 +17,15 @@
 		183E06FB22DFCD5F0062B067 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FA22DFCD5F0062B067 /* functions.swift */; };
 		183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FC22DFDAE30062B067 /* AddListViewController.swift */; };
 		183E070122DFDBAC0062B067 /* SingleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */; };
+		18583EEA22E38B4000A12AAC /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18583EE922E38B4000A12AAC /* ListTableViewCell.swift */; };
 		18BBD28A22E1C5CF00644F05 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD28922E1C5CF00644F05 /* FirstPageViewController.swift */; };
 		18BBD28C22E1F9EA00644F05 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD28B22E1F9EA00644F05 /* WordsTableViewController.swift */; };
+		18D0652122E2845D00D6FFF5 /* ListsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0652022E2845D00D6FFF5 /* ListsCollectionViewController.swift */; };
+		18D0653C22E35C6400D6FFF5 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653522E35C6400D6FFF5 /* BEMAnimationManager.m */; };
+		18D0653D22E35C6400D6FFF5 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653622E35C6400D6FFF5 /* BEMPathManager.m */; };
+		18D0653E22E35C6400D6FFF5 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653722E35C6400D6FFF5 /* BEMCheckBoxGroup.m */; };
+		18D0653F22E35C6400D6FFF5 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653922E35C6400D6FFF5 /* BEMCheckBox.m */; };
+		18D0654122E35F3500D6FFF5 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0654022E35F3500D6FFF5 /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +41,20 @@
 		183E06FA22DFCD5F0062B067 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		183E06FC22DFDAE30062B067 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListTableViewController.swift; sourceTree = "<group>"; };
+		18583EE922E38B4000A12AAC /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD28922E1C5CF00644F05 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
 		18BBD28B22E1F9EA00644F05 /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
+		18D0652022E2845D00D6FFF5 /* ListsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCollectionViewController.swift; sourceTree = "<group>"; };
+		18D0653222E35BD100D6FFF5 /* CheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		18D0653422E35C6400D6FFF5 /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		18D0653522E35C6400D6FFF5 /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		18D0653622E35C6400D6FFF5 /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		18D0653722E35C6400D6FFF5 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
+		18D0653822E35C6400D6FFF5 /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		18D0653922E35C6400D6FFF5 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		18D0653A22E35C6400D6FFF5 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		18D0653B22E35C6400D6FFF5 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		18D0654022E35F3500D6FFF5 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +71,7 @@
 		183E06D422DFBCA90062B067 = {
 			isa = PBXGroup;
 			children = (
+				18D0653222E35BD100D6FFF5 /* CheckBox.h */,
 				183E06DF22DFBCA90062B067 /* Checker */,
 				183E06DE22DFBCA90062B067 /* Products */,
 			);
@@ -70,6 +90,7 @@
 			children = (
 				183E06E022DFBCA90062B067 /* AppDelegate.swift */,
 				183E06E622DFBCA90062B067 /* Main.storyboard */,
+				18D0652022E2845D00D6FFF5 /* ListsCollectionViewController.swift */,
 				183E06FE22DFDB3D0062B067 /* FirstPage */,
 				183E070222DFDBD60062B067 /* SecondPage */,
 				183E06E922DFBCAA0062B067 /* Assets.xcassets */,
@@ -77,6 +98,7 @@
 				183E06EE22DFBCAA0062B067 /* Info.plist */,
 				183E06F422DFC5460062B067 /* data.swift */,
 				183E06FA22DFCD5F0062B067 /* functions.swift */,
+				18D0653322E35C6400D6FFF5 /* Classes */,
 			);
 			path = Checker;
 			sourceTree = "<group>";
@@ -84,10 +106,12 @@
 		183E06FE22DFDB3D0062B067 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
+				18583EE922E38B4000A12AAC /* ListTableViewCell.swift */,
 				183E06F622DFC5900062B067 /* ListsTableViewController.swift */,
 				183E06FC22DFDAE30062B067 /* AddListViewController.swift */,
 				183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */,
 				18BBD28922E1C5CF00644F05 /* FirstPageViewController.swift */,
+				18D0654022E35F3500D6FFF5 /* TaskTableViewCell.swift */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -99,6 +123,21 @@
 				18BBD28B22E1F9EA00644F05 /* WordsTableViewController.swift */,
 			);
 			name = SecondPage;
+			sourceTree = "<group>";
+		};
+		18D0653322E35C6400D6FFF5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18D0653422E35C6400D6FFF5 /* BEMCheckBox.h */,
+				18D0653522E35C6400D6FFF5 /* BEMAnimationManager.m */,
+				18D0653622E35C6400D6FFF5 /* BEMPathManager.m */,
+				18D0653722E35C6400D6FFF5 /* BEMCheckBoxGroup.m */,
+				18D0653822E35C6400D6FFF5 /* BEMAnimationManager.h */,
+				18D0653922E35C6400D6FFF5 /* BEMCheckBox.m */,
+				18D0653A22E35C6400D6FFF5 /* BEMPathManager.h */,
+				18D0653B22E35C6400D6FFF5 /* BEMCheckBoxGroup.h */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,11 +211,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D0653C22E35C6400D6FFF5 /* BEMAnimationManager.m in Sources */,
+				18583EEA22E38B4000A12AAC /* ListTableViewCell.swift in Sources */,
+				18D0653F22E35C6400D6FFF5 /* BEMCheckBox.m in Sources */,
+				18D0654122E35F3500D6FFF5 /* TaskTableViewCell.swift in Sources */,
 				183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */,
 				183E06F922DFC5AB0062B067 /* SettingsTableViewController.swift in Sources */,
 				183E06FB22DFCD5F0062B067 /* functions.swift in Sources */,
 				183E06F722DFC5900062B067 /* ListsTableViewController.swift in Sources */,
+				18D0652122E2845D00D6FFF5 /* ListsCollectionViewController.swift in Sources */,
 				18BBD28A22E1C5CF00644F05 /* FirstPageViewController.swift in Sources */,
+				18D0653E22E35C6400D6FFF5 /* BEMCheckBoxGroup.m in Sources */,
+				18D0653D22E35C6400D6FFF5 /* BEMPathManager.m in Sources */,
 				18BBD28C22E1F9EA00644F05 /* WordsTableViewController.swift in Sources */,
 				183E06E122DFBCA90062B067 /* AppDelegate.swift in Sources */,
 				183E070122DFDBAC0062B067 /* SingleListTableViewController.swift in Sources */,
@@ -335,6 +381,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = serkorshunov.Checker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CheckBox.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -353,6 +400,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = serkorshunov.Checker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CheckBox.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

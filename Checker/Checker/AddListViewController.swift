@@ -49,7 +49,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     func setupEdition() {
         let editingList = ListsArray[editingListIndex!]
-        nameTextField.text = editingList.name
+        nameTextField.text = editingList.title
         categoryTextField.text = editingList.category
         currentColor = editingList.color
         if let color = str2col(editingList.color) {
@@ -66,11 +66,11 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func AddList(_ sender: Any) {
         if !nameTextField.text!.strip().isEmpty {
-            let newList = List(name: nameTextField.text!.strip(), category: categoryTextField.text!.strip(), color: currentColor)
+            let newList = ListItem(title: nameTextField.text!.strip(), category: categoryTextField.text!.strip(), color: currentColor)
             if editingListIndex != nil {
-                let tasks = getListForName(ListsArray[editingListIndex!].name)
-                SavedData.removeObject(forKey: ListsArray[editingListIndex!].name)
-                setListForName(tasks, newList.name)
+                let tasks = getListForName(ListsArray[editingListIndex!].title)
+                SavedData.removeObject(forKey: ListsArray[editingListIndex!].title)
+                setListForName(tasks, newList.title)
                 
                 
                 ListsArray[editingListIndex!] = newList

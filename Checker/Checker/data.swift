@@ -11,25 +11,16 @@ import UIKit
 
 let SavedData = UserDefaults.standard
 
-struct List : Codable {
-    var name = String()
-    var category = String()
-    var color = String()
-}
-
-var ListsArray: [List]
+var ListsArray: [ListItem]
 {
     set {
-        SavedData.set(try? PropertyListEncoder().encode(newValue), forKey: "ListsArray")
-        SavedData.synchronize()
+        DataManager.save(newValue, with: "CheckerLists")
     }
     get {
-        if let data = SavedData.value(forKey: "ListsArray") as? Data  {
-            let array = (try? PropertyListDecoder().decode(Array<List>.self, from: data))!
-            return array
-        } else {
-            return []
+        if let data = DataManager.load("CheckerLists", with: Array<ListItem>.self) {
+            return data
         }
+        return []
     }
 }
 
@@ -77,6 +68,7 @@ var Settings: [String : Bool] {
 struct ListItem : Codable {
     var title: String
     var category: String
+    var color : String
     
     let id = UUID()
 }

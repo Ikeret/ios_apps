@@ -37,11 +37,11 @@ public class DataManager {
     }
     
     // Load codable object
-    static func load<T:Decodable>(_ filename: String, with type: T.Type) -> T {
+    static func load<T:Decodable>(_ filename: String, with type: T.Type) -> T? {
         let path = getDocumentDirectory().appendingPathComponent(filename, isDirectory: false).path
         
         if !FileManager.default.fileExists(atPath: path) {
-            fatalError("File not found at path \(path)")
+            return nil
         }
         
         if let data = FileManager.default.contents(atPath: path) {

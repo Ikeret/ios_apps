@@ -64,7 +64,7 @@ class ListsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! ListTableViewCell
-        cell.titleLabel.text = ListsArray[indexPath.section].name
+        cell.titleLabel.text = ListsArray[indexPath.section].title
         cell.categoryLabel.text = ListsArray[indexPath.section].category
         
         
@@ -120,7 +120,7 @@ class ListsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
+            self.conformDeletion(ListsArray[indexPath.section].title, indexPath: indexPath)
         }
     }
     
@@ -143,7 +143,7 @@ class ListsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        CurrentListName = ListsArray[indexPath.section].name
+        CurrentListName = ListsArray[indexPath.section].title
         performSegue(withIdentifier: "ShowCurrentList", sender: self)
     }
  
@@ -158,7 +158,7 @@ class ListsTableViewController: UITableViewController {
         
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
+            self.conformDeletion(ListsArray[indexPath.section].title, indexPath: indexPath)
         }
         return [deleteAction, editAction]
     }
@@ -179,7 +179,7 @@ class ListsTableViewController: UITableViewController {
         pinAction.backgroundColor = .orange
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, complition) in
-            self.conformDeletion(ListsArray[indexPath.section].name, indexPath: indexPath)
+            self.conformDeletion(ListsArray[indexPath.section].title, indexPath: indexPath)
             complition(false)
         }
         

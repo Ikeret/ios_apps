@@ -41,3 +41,10 @@ func setListForName(_ list: [Item], _ name: String) {
     UserDefaults.standard.set(try? PropertyListEncoder().encode(list), forKey: name)
     UserDefaults.standard.synchronize()
 }
+
+
+extension String {
+    func strip() -> String {
+        return self.trimmingCharacters(in: [" "])
+    }
+}

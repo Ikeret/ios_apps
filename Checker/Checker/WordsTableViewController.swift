@@ -17,6 +17,7 @@ class WordsTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
  
         textField.placeholder = "Enter the name"
+//        textField.delegate = nil
         addButton.layer.cornerRadius = 5
         addButton.layer.borderWidth = 0.1
         addButton.layer.borderColor = UIColor.gray.cgColor
@@ -24,23 +25,29 @@ class WordsTableViewController: UITableViewController, UITextFieldDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    @IBAction func buttonAction(_ sender: Any) {
-        view.endEditing(true)
-        
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        Tasks = Array(Set(Tasks))
+        Tasks.sort()
+        tableView.reloadData()
     }
     
-    @IBAction private func textFieldEndEditing(_ sender: Any) {
+    @IBAction func buttonAction(_ sender: Any) {
+        textField.text = textField.text?.strip()
         if textField.text != "" {
-            Tasks.append(textField.text!)
-            Tasks = Array(Set(Tasks))
-            Tasks.sort()
-            tableView.reloadData()
+            Tasks.insert(textField.text!, at: 0)
+            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
             textField.text = ""
         }
     }
     
+    @IBAction private func textFieldEndEditing(_ sender: Any) {
+       
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        buttonAction(true)
         return false
     }
     

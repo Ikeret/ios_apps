@@ -65,8 +65,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func AddList(_ sender: Any) {
-        if !nameTextField.text!.isEmpty {
-            let newList = List(name: nameTextField.text!, category: categoryTextField.text!, color: currentColor)
+        if !nameTextField.text!.strip().isEmpty {
+            let newList = List(name: nameTextField.text!.strip(), category: categoryTextField.text!.strip(), color: currentColor)
             if editingListIndex != nil {
                 let tasks = getListForName(ListsArray[editingListIndex!].name)
                 SavedData.removeObject(forKey: ListsArray[editingListIndex!].name)
@@ -101,7 +101,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if textField == self.nameTextField, categoryTextField.text == "", nameTextField.text != "" {
+        if textField == self.nameTextField, categoryTextField.text == "", nameTextField.text!.strip() != "" {
             self.categoryTextField.becomeFirstResponder()
         }
         if textField == self.categoryTextField, currentColor == "" {
@@ -112,8 +112,9 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == nameTextField, range.lowerBound == 0  {
-            topDoneButton.isEnabled = !string.isEmpty
-            doneButton.isEnabled = !string.isEmpty
+            let empty = !string.strip().isEmpty
+            topDoneButton.isEnabled = empty
+            doneButton.isEnabled = empty
         }
         return true
     }

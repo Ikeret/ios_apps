@@ -173,11 +173,12 @@ class SingleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if rowIsSelected { return }
-        rowIsSelected = true
+        
         
         
         if Settings["AutoSorting"] ?? true {
+            if rowIsSelected { return }
+            rowIsSelected = true
             sortingWhenChecked(indexPath)
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
@@ -245,7 +246,7 @@ class SingleListTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let doneAction = UIAlertAction(title: "Done", style: .default) { (action) in
             let text = alertController.textFields![0].text!
-            if !text.isEmpty {
+            if !text.strip().isEmpty {
                 self.CurrentList[indexPath.row].name = text
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
             }

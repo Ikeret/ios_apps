@@ -32,6 +32,10 @@ class ListsTableViewController: UITableViewController {
             editingListIndex = nil
         }
         
+//        DataManager.save(ListsArray, with: "test")
+//        let data = DataManager.load("test", with: Array<List>.self)
+//        print(data[0].name)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +75,11 @@ class ListsTableViewController: UITableViewController {
 
         
         if let color = str2col(ListsArray[indexPath.section].color) {
-            cell.colorIndicator.backgroundColor = color
+            cell.titleLabel.textColor = .white
+            cell.categoryLabel.textColor = .white
+            cell.colorIndicator.backgroundColor = .white
+            cell.frameView.backgroundColor = color
+            cell.frameView.alpha = 0.7
         }
         else {
             if space == 16.0 {

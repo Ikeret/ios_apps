@@ -25,6 +25,7 @@
 		18D0653E22E35C6400D6FFF5 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653722E35C6400D6FFF5 /* BEMCheckBoxGroup.m */; };
 		18D0653F22E35C6400D6FFF5 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0653922E35C6400D6FFF5 /* BEMCheckBox.m */; };
 		18D0654122E35F3500D6FFF5 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0654022E35F3500D6FFF5 /* TaskTableViewCell.swift */; };
+		18F7EF7122E4A1DB007EDF11 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7EF7022E4A1DB007EDF11 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		18D0653A22E35C6400D6FFF5 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
 		18D0653B22E35C6400D6FFF5 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
 		18D0654022E35F3500D6FFF5 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		18F7EF7022E4A1DB007EDF11 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,7 @@
 				183E06E922DFBCAA0062B067 /* Assets.xcassets */,
 				183E06EB22DFBCAA0062B067 /* LaunchScreen.storyboard */,
 				183E06EE22DFBCAA0062B067 /* Info.plist */,
-				183E06F422DFC5460062B067 /* data.swift */,
+				18F7EF7322E4A209007EDF11 /* Data Model */,
 				183E06FA22DFCD5F0062B067 /* functions.swift */,
 				18D0653322E35C6400D6FFF5 /* Classes */,
 			);
@@ -135,6 +137,15 @@
 				18D0653B22E35C6400D6FFF5 /* BEMCheckBoxGroup.h */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		18F7EF7322E4A209007EDF11 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F7EF7022E4A1DB007EDF11 /* DataManager.swift */,
+				183E06F422DFC5460062B067 /* data.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D0653C22E35C6400D6FFF5 /* BEMAnimationManager.m in Sources */,
+				18F7EF7122E4A1DB007EDF11 /* DataManager.swift in Sources */,
 				18583EEA22E38B4000A12AAC /* ListTableViewCell.swift in Sources */,
 				18D0653F22E35C6400D6FFF5 /* BEMCheckBox.m in Sources */,
 				18D0654122E35F3500D6FFF5 /* TaskTableViewCell.swift in Sources */,

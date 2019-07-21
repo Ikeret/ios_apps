@@ -71,3 +71,29 @@ var Settings: [String : Bool] {
         return defaults
     }
 }
+
+
+
+struct ListItem : Codable {
+    var title: String
+    var category: String
+    
+    let id = UUID()
+}
+
+struct TaskItem: Codable {
+    var name: String
+    var completed: Bool = false
+}
+
+struct UserSettings: Codable {
+    var AutoSorting: Bool = true
+    var RememberingWords: Bool = true
+    var DarkMode: Bool = false
+}
+
+struct DailyTask: Codable{
+    var name: String
+    var time: Date
+    var completed: Bool = false
+}

@@ -31,9 +31,10 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hide_hint()
         user_face.setTitle(user_stored_face, for: .normal)
         
-        hide_hint()
+        
     }
     
     @IBAction func Change_user_face(_ sender: UIButton) {

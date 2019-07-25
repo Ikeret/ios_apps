@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18C349AF22EA279A00275F23 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C349AE22EA279A00275F23 /* DailyView.swift */; };
+		18C349B122EA27AB00275F23 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C349B022EA27AB00275F23 /* SettingsView.swift */; };
+		18C349B322EA27D400275F23 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C349B222EA27D400275F23 /* HomeView.swift */; };
 		18D066A122E92FF5009A2960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D066A022E92FF5009A2960 /* AppDelegate.swift */; };
 		18D066A322E92FF5009A2960 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D066A222E92FF5009A2960 /* SceneDelegate.swift */; };
 		18D066A522E92FF5009A2960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D066A422E92FF5009A2960 /* ContentView.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18C349AE22EA279A00275F23 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/sergeykorsunov/Library/CloudStorage/iCloud Drive/Documents/GitHub/ios_apps/SwiftUI/Checker/Checker/DailyView.swift"; sourceTree = "<group>"; };
+		18C349B022EA27AB00275F23 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/sergeykorsunov/Library/CloudStorage/iCloud Drive/Documents/GitHub/ios_apps/SwiftUI/Checker/Checker/SettingsView.swift"; sourceTree = "<group>"; };
+		18C349B222EA27D400275F23 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/sergeykorsunov/Library/CloudStorage/iCloud Drive/Documents/GitHub/ios_apps/SwiftUI/Checker/Checker/HomeView.swift"; sourceTree = "<group>"; };
 		18D0669D22E92FF5009A2960 /* Checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D066A022E92FF5009A2960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D066A222E92FF5009A2960 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				18D066A022E92FF5009A2960 /* AppDelegate.swift */,
 				18D066A222E92FF5009A2960 /* SceneDelegate.swift */,
 				18D066A422E92FF5009A2960 /* ContentView.swift */,
+				18C349AE22EA279A00275F23 /* DailyView.swift */,
+				18C349B022EA27AB00275F23 /* SettingsView.swift */,
+				18C349B222EA27D400275F23 /* HomeView.swift */,
 				18D066A622E92FF8009A2960 /* Assets.xcassets */,
 				18D066AB22E92FF8009A2960 /* LaunchScreen.storyboard */,
 				18D066AE22E92FF8009A2960 /* Info.plist */,
@@ -146,7 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C349B122EA27AB00275F23 /* SettingsView.swift in Sources */,
+				18C349AF22EA279A00275F23 /* DailyView.swift in Sources */,
 				18D066A122E92FF5009A2960 /* AppDelegate.swift in Sources */,
+				18C349B322EA27D400275F23 /* HomeView.swift in Sources */,
 				18D066A322E92FF5009A2960 /* SceneDelegate.swift in Sources */,
 				18D066A522E92FF5009A2960 /* ContentView.swift in Sources */,
 			);

@@ -68,12 +68,10 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         if !nameTextField.text!.strip().isEmpty {
             let newList = ListItem(title: nameTextField.text!.strip(), category: categoryTextField.text!.strip(), color: currentColor)
             if editingListIndex != nil {
-                let tasks = getListForName(ListsArray[editingListIndex!].title)
-                SavedData.removeObject(forKey: ListsArray[editingListIndex!].title)
-                setListForName(tasks, newList.title)
                 
-                
-                ListsArray[editingListIndex!] = newList
+                ListsArray[editingListIndex!].title = newList.title
+                ListsArray[editingListIndex!].category = newList.category
+                ListsArray[editingListIndex!].color  = newList.color
                 editingListIndex = nil
             }
             else {

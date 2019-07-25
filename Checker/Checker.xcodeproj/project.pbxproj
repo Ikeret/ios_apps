@@ -14,7 +14,6 @@
 		183E06F522DFC5460062B067 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F422DFC5460062B067 /* data.swift */; };
 		183E06F722DFC5900062B067 /* ListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F622DFC5900062B067 /* ListsTableViewController.swift */; };
 		183E06F922DFC5AB0062B067 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06F822DFC5AB0062B067 /* SettingsTableViewController.swift */; };
-		183E06FB22DFCD5F0062B067 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FA22DFCD5F0062B067 /* functions.swift */; };
 		183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E06FC22DFDAE30062B067 /* AddListViewController.swift */; };
 		183E070122DFDBAC0062B067 /* SingleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */; };
 		18583EEA22E38B4000A12AAC /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18583EE922E38B4000A12AAC /* ListTableViewCell.swift */; };
@@ -38,7 +37,6 @@
 		183E06F422DFC5460062B067 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		183E06F622DFC5900062B067 /* ListsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsTableViewController.swift; sourceTree = "<group>"; };
 		183E06F822DFC5AB0062B067 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		183E06FA22DFCD5F0062B067 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		183E06FC22DFDAE30062B067 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		183E070022DFDBAC0062B067 /* SingleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListTableViewController.swift; sourceTree = "<group>"; };
 		18583EE922E38B4000A12AAC /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				183E06EB22DFBCAA0062B067 /* LaunchScreen.storyboard */,
 				183E06EE22DFBCAA0062B067 /* Info.plist */,
 				18F7EF7322E4A209007EDF11 /* Data Model */,
-				183E06FA22DFCD5F0062B067 /* functions.swift */,
 				18D0653322E35C6400D6FFF5 /* Classes */,
 			);
 			path = Checker;
@@ -226,7 +223,6 @@
 				18D0654122E35F3500D6FFF5 /* TaskTableViewCell.swift in Sources */,
 				183E06FD22DFDAE30062B067 /* AddListViewController.swift in Sources */,
 				183E06F922DFC5AB0062B067 /* SettingsTableViewController.swift in Sources */,
-				183E06FB22DFCD5F0062B067 /* functions.swift in Sources */,
 				183E06F722DFC5900062B067 /* ListsTableViewController.swift in Sources */,
 				18BBD28A22E1C5CF00644F05 /* FirstPageViewController.swift in Sources */,
 				18D0653E22E35C6400D6FFF5 /* BEMCheckBoxGroup.m in Sources */,

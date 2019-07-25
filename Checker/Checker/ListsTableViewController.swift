@@ -143,7 +143,19 @@ class ListsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        CurrentListName = ListsArray[indexPath.section].title
+        let selectedList = ListsArray[indexPath.section]
+        if let lastList = CurrentListID {
+            saveTasks(ID: lastList, CurrentList)
+        }
+        CurrentListID = selectedList.id
+        CurrentListName = selectedList.title
+        DispatchQueue.main.async {
+            CurrentList = loadTasks(ID: selectedList.id)
+        }
+        
+
+        
+        
         performSegue(withIdentifier: "ShowCurrentList", sender: self)
     }
  

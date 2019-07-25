@@ -11,26 +11,6 @@ import UIKit
 
 let SavedData = UserDefaults.standard
 
-var ListsArray: [ListItem]
-{
-    set {
-        DataManager.save(newValue, with: "CheckerLists")
-    }
-    get {
-        if let data = DataManager.load("CheckerLists", with: Array<ListItem>.self) {
-            return data
-        }
-        return []
-    }
-}
-
-var CurrentListName: String?
-
-struct Item : Codable {
-    var name = String()
-    var checked = false
-}
-
 var Tasks: [String]
 {
     set {
@@ -64,6 +44,7 @@ var Settings: [String : Bool] {
 }
 
 
+// MARK: - ListsArray
 
 struct ListItem : Codable {
     var title: String
@@ -73,10 +54,44 @@ struct ListItem : Codable {
     let id = UUID()
 }
 
+var ListsArray: [ListItem] = []
+
+func loadLists() {
+    if let data = DataManager.load("CheckerLists", with: Array<ListItem>.self) {
+        ListsArray = data
+    }
+}
+
+func saveLists() {
+    DataManager.save(ListsArray, with: "CheckerLists")
+}
+
+// MARK: - TasksArray
+
+var CurrentListID: UUID?
+var CurrentListName: String?
+var CurrentList: [TaskItem] = []
+
 struct TaskItem: Codable {
     var name: String
-    var completed: Bool = false
+    var checked: Bool = false
 }
+
+func loadTasks(ID: UUID) -> [TaskItem] {
+    if let data = DataManager.load(ID.uuidString, with: Array<TaskItem>.self) {
+        print("Loaded data: \(data)")
+        return data
+    } else {
+        return []
+    }
+}
+
+func saveTasks(ID: UUID, _ data: [TaskItem]) {
+    print("Saved data: \(data)")
+    DataManager.save(data, with: ID.uuidString)
+}
+
+// MARK: - UserSettings
 
 struct UserSettings: Codable {
     var AutoSorting: Bool = true
@@ -84,8 +99,52 @@ struct UserSettings: Codable {
     var DarkMode: Bool = false
 }
 
+func loadSettings() {
+    
+}
+
+func saveSettings() {
+    
+}
+
+// MARK: - DailyTask
+
 struct DailyTask: Codable{
     var name: String
     var time: Date
     var completed: Bool = false
+}
+
+// MARK: - Colors
+
+let Colors: [String] = ["Red", "Green", "Blue", "Cyan"]
+func str2col(_ color: String) -> UIColor? {
+    
+    switch color.lowercased() {
+    case "blue":
+        return .blue
+    case "red":
+        return .red
+    case "cyan":
+        return .cyan
+    case "green":
+        return .green
+    default:
+        return nil
+    }
+}
+
+// MARK: - Other
+
+func saveAllData() {
+    saveLists()
+    if CurrentListID != nil {
+        saveTasks(ID: CurrentListID!, CurrentList)
+    }
+}
+
+extension String {
+    func strip() -> String {
+        return self.trimmingCharacters(in: [" "])
+    }
 }

@@ -165,9 +165,6 @@
                                                 <constraint firstItem="ynO-jY-yzC" firstAttribute="leading" secondItem="OjZ-20-cEZ" secondAttribute="leadingMargin" id="Rzl-GF-BAu"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Dh8-LX-8O5" kind="show" id="xZG-Gg-8EQ"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -187,34 +184,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phD-BV-yH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81" y="976"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Ap7-or-6tG">
-            <objects>
-                <tableViewController id="Dh8-LX-8O5" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fzC-xB-rNf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NeZ-mm-30q">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NeZ-mm-30q" id="eL9-AD-pFE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Dh8-LX-8O5" id="7xP-f3-ViE"/>
-                            <outlet property="delegate" destination="Dh8-LX-8O5" id="0aF-Gy-qLb"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SaA-xv-PUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="867" y="1329"/>
         </scene>
         <!--Words Table View Controller-->
         <scene sceneID="aC3-g2-cnh">
@@ -309,7 +278,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" alpha="0.0" contentMode="scaleToFill" misplaced="YES" id="i1h-wj-ZbE">
                             <rect key="frame" x="0.0" y="128" width="414" height="200"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
@@ -399,7 +368,7 @@
             <objects>
                 <viewController id="nhP-mo-xmY" customClass="AddListViewController" customModule="Checker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KQu-Ld-nXc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ze-dZ-LDr">
@@ -422,7 +391,7 @@
                                 </items>
                             </navigationBar>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRP-Gs-1CZ">
-                                <rect key="frame" x="10" y="226.5" width="394" height="360"/>
+                                <rect key="frame" x="10" y="268" width="394" height="360"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxd-u3-cYm">
                                         <rect key="frame" x="8" y="65" width="80" height="23"/>
@@ -558,7 +527,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="progressTintColor" name="ColorScheme"/>
                         </progressView>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="EFP-Ac-HWo">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="EFP-Ac-HWo">
                             <rect key="frame" x="0.0" y="74" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -771,6 +740,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pac-Ef-z2V"/>
+        <segue reference="pIZ-Dp-4CB"/>
     </inferredMetricsTieBreakers>
 </document>

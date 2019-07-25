@@ -9,10 +9,7 @@
 import UIKit
 
 class SingleListTableViewController: UITableViewController {
-    var CurrentList: [Item] {
-        set { setListForName(newValue, CurrentListName!) }
-        get { return getListForName(CurrentListName!) }
-    }
+    
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var deleteButton: UIButton!
@@ -45,10 +42,15 @@ class SingleListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         if Settings["AutoSorting"] ?? true {
             sortList()
             tableView.reloadData()
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+//        saveTasks(ID: CurrentListID!, CurrentList!)
     }
     
     func updateProgress() {
@@ -161,7 +163,7 @@ class SingleListTableViewController: UITableViewController {
         }
         editAction.backgroundColor = .blue
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            self.CurrentList.remove(at: indexPath.row)
+            CurrentList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.updateProgress()
         }
@@ -227,8 +229,8 @@ class SingleListTableViewController: UITableViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
             self.tableView.moveRow(at: indexPath, to: destination)
-            self.CurrentList.remove(at: indexPath.row)
-            self.CurrentList.insert(cell, at: destinationIndex!)
+            CurrentList.remove(at: indexPath.row)
+            CurrentList.insert(cell, at: destinationIndex!)
             self.updateProgress()
             self.rowIsSelected = false
         }
@@ -247,7 +249,7 @@ class SingleListTableViewController: UITableViewController {
         let doneAction = UIAlertAction(title: "Done", style: .default) { (action) in
             let text = alertController.textFields![0].text!
             if !text.strip().isEmpty {
-                self.CurrentList[indexPath.row].name = text
+                CurrentList[indexPath.row].name = text
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
             }
         }
@@ -336,7 +338,7 @@ extension SingleListTableViewController : UISearchResultsUpdating, UISearchBarDe
             Tasks = Array(Set(Tasks))
             Tasks.sort()
         }
-        CurrentList.insert(Item(name: name, checked: false), at: 0)
+        CurrentList.insert(TaskItem(name: name, checked: false), at: 0)
         updateProgress()
         searchController.searchResultsController?.dismiss(animated: true, completion: {
             self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)

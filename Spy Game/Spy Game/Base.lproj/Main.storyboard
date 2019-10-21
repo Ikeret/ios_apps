@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bfo-tg-JXI">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rules-->
+        <scene sceneID="p2d-if-uLk">
+            <objects>
+                <viewController id="Lje-km-fZ0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uxo-2T-nmY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9j-Zh-47c">
+                                <rect key="frame" x="20" y="116" width="335" height="531"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Do-hd-tiE">
+                                        <rect key="frame" x="20" y="40" width="295" height="471"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <string key="text">Start of the game - everyone takes turns transferring the device and finding out their roles. All players except the spy have the same location, for example, Restaurant. At first, no one knows who the spy is. The task of the players is to calculate it. You need to do this by asking questions in turn to each other, for example - When was the last time you visited this place? The spy does not know the location, so he may not answer exactly. Each player can ask one player a choice, then this player asks a question to someone else. The spy, in his turn, must understand the location on issues. If he guessed about the location, he could name it and win. If a player has suspicions of someone, he has the right to say - I know who the spy is! At the score of 3, all players point their finger at the suspect. If everyone pointed to one player (except himself), then the game ends: either the players figured out the spy or not. If the opinions do not coincide, then the game continues. In the next game, the first one asks who was a spy.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6Do-hd-tiE" secondAttribute="trailing" constant="20" id="0lw-Yp-vB4"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Do-hd-tiE" secondAttribute="bottom" constant="20" id="Hbq-SD-jBp"/>
+                                    <constraint firstItem="6Do-hd-tiE" firstAttribute="leading" secondItem="A9j-Zh-47c" secondAttribute="leading" constant="20" id="Wqw-r8-ahm"/>
+                                    <constraint firstItem="6Do-hd-tiE" firstAttribute="top" secondItem="A9j-Zh-47c" secondAttribute="top" constant="40" id="kRj-fD-fNP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VSL-jX-60S" firstAttribute="bottom" secondItem="A9j-Zh-47c" secondAttribute="bottom" constant="20" id="27D-Pn-yZh"/>
+                            <constraint firstItem="A9j-Zh-47c" firstAttribute="top" secondItem="VSL-jX-60S" secondAttribute="top" constant="20" id="nGX-6z-fss"/>
+                            <constraint firstItem="VSL-jX-60S" firstAttribute="trailing" secondItem="A9j-Zh-47c" secondAttribute="trailing" constant="20" id="tpD-PW-SZx"/>
+                            <constraint firstItem="A9j-Zh-47c" firstAttribute="leading" secondItem="VSL-jX-60S" secondAttribute="leading" constant="20" id="wOB-O2-Vbm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VSL-jX-60S"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rules" id="f2s-A0-SF3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDP-wn-knd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="-531"/>
+        </scene>
+        <!--Spy Game-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="StartVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJf-MK-qI2">
+                                <rect key="frame" x="20" y="180" width="335" height="307"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AyW-Qe-Qje">
+                                        <rect key="frame" x="10" y="10" width="315" height="247"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrq-gN-ve7">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sIg-AA-Yos">
+                                                <rect key="frame" x="0.0" y="79" width="315" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of time: 3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E92-cI-Wjl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.3999999999999999" minValue="3" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-dE-OKa">
+                                                        <rect key="frame" x="-2" y="29" width="319" height="31"/>
+                                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="amountTime:" destination="BYZ-38-t0r" eventType="valueChanged" id="HIm-SY-PZo"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TMJ-9a-StG">
+                                                <rect key="frame" x="0.0" y="188" width="315" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of players: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGf-9U-3Yy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.3999999999999999" minValue="3" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kin-b7-gOG">
+                                                        <rect key="frame" x="-2" y="29" width="319" height="31"/>
+                                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="numberPlayers:" destination="BYZ-38-t0r" eventType="valueChanged" id="4EU-J2-DFL"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AyW-Qe-Qje" secondAttribute="trailing" constant="10" id="3Pq-Ie-qqi"/>
+                                    <constraint firstItem="AyW-Qe-Qje" firstAttribute="top" secondItem="YJf-MK-qI2" secondAttribute="top" constant="10" id="aGQ-we-7oY"/>
+                                    <constraint firstItem="AyW-Qe-Qje" firstAttribute="leading" secondItem="YJf-MK-qI2" secondAttribute="leading" constant="10" id="lkg-Co-qZx"/>
+                                    <constraint firstAttribute="bottom" secondItem="AyW-Qe-Qje" secondAttribute="bottom" constant="50" id="vU5-F8-qQe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdm-dK-ZkC">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fIk-ZR-9p6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="4hc-qX-1ky" kind="show" id="2l1-AG-agM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YJf-MK-qI2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="29B-UB-BWf"/>
+                            <constraint firstItem="vdm-dK-ZkC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2Ip-Nh-loy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YJf-MK-qI2" secondAttribute="trailing" constant="20" id="3py-lb-E0S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vdm-dK-ZkC" secondAttribute="trailing" constant="20" id="7fv-fi-PXs"/>
+                            <constraint firstItem="YJf-MK-qI2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CB2-RB-qre"/>
+                            <constraint firstItem="YJf-MK-qI2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uI4-2I-9vE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vdm-dK-ZkC" secondAttribute="bottom" constant="20" id="wid-NR-gqA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Spy Game" id="hsH-5j-17U">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="bsg-co-S14">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Oj5-JK-EPK">
+                                <rect key="frame" x="267" y="4" width="92" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Rules">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Lje-km-fZ0" kind="show" id="EnH-kv-AGZ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTimeLabel" destination="E92-cI-Wjl" id="Rql-vQ-8uw"/>
+                        <outlet property="numberPlayersLabel" destination="fGf-9U-3Yy" id="5Ej-Rr-Uwc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+        </scene>
+        <!--Distribution of roles-->
+        <scene sceneID="eF1-ed-QvR">
+            <objects>
+                <viewController id="4hc-qX-1ky" customClass="RolesViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jkp-LX-P4G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-Nm-I3d">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VJs-JO-SeM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="okAction:" destination="4hc-qX-1ky" eventType="touchUpInside" id="76J-dZ-YkE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-7M-OH4">
+                                <rect key="frame" x="20" y="146" width="335" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz6-3T-dmj">
+                                <rect key="frame" x="20" y="518" width="335" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IcB-Nm-I3d" firstAttribute="top" secondItem="Dz6-3T-dmj" secondAttribute="bottom" constant="50" id="7vl-Wc-okv"/>
+                            <constraint firstItem="bXG-J4-cYD" firstAttribute="bottom" secondItem="IcB-Nm-I3d" secondAttribute="bottom" constant="20" id="KIV-BW-u2E"/>
+                            <constraint firstAttribute="trailing" secondItem="IcB-Nm-I3d" secondAttribute="trailing" constant="20" id="Wa5-kZ-Axu"/>
+                            <constraint firstItem="bXG-J4-cYD" firstAttribute="trailing" secondItem="S2C-7M-OH4" secondAttribute="trailing" constant="20" id="Wnn-MS-Vub"/>
+                            <constraint firstItem="S2C-7M-OH4" firstAttribute="leading" secondItem="bXG-J4-cYD" secondAttribute="leading" constant="20" id="jgF-Nd-iKn"/>
+                            <constraint firstItem="S2C-7M-OH4" firstAttribute="top" secondItem="bXG-J4-cYD" secondAttribute="top" constant="50" id="mfz-cr-o9h"/>
+                            <constraint firstItem="bXG-J4-cYD" firstAttribute="trailing" secondItem="Dz6-3T-dmj" secondAttribute="trailing" constant="20" id="myE-OD-5a0"/>
+                            <constraint firstItem="IcB-Nm-I3d" firstAttribute="leading" secondItem="jkp-LX-P4G" secondAttribute="leading" constant="20" id="o0T-70-yfJ"/>
+                            <constraint firstItem="Dz6-3T-dmj" firstAttribute="leading" secondItem="bXG-J4-cYD" secondAttribute="leading" constant="20" id="vWY-8j-llz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bXG-J4-cYD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Distribution of roles" id="jWd-ca-da3"/>
+                    <connections>
+                        <outlet property="LocationLabel" destination="S2C-7M-OH4" id="YAe-RL-rXq"/>
+                        <outlet property="orderLabel" destination="Dz6-3T-dmj" id="drB-p7-SEQ"/>
+                        <segue destination="JTm-NJ-8Aq" kind="show" identifier="toTimerVC" id="ggQ-ry-lzE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Htl-kP-8lv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="130"/>
+        </scene>
+        <!--Play the game-->
+        <scene sceneID="BQb-14-XfF">
+            <objects>
+                <viewController id="JTm-NJ-8Aq" customClass="TimerViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ixB-u9-o6n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-Qj-f0Z">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="o7Y-ZV-V3O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="Restart timer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="restartButton:" destination="JTm-NJ-8Aq" eventType="touchUpInside" id="VGP-3z-02Q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G93-NY-gSy" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
+                                <rect key="frame" x="60" y="206" width="255" height="255"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="G93-NY-gSy" secondAttribute="height" multiplier="1:1" id="qhV-7c-dNf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bDi-pf-7HX" firstAttribute="trailing" secondItem="G93-NY-gSy" secondAttribute="trailing" constant="60" id="3dr-iR-iw3"/>
+                            <constraint firstItem="G93-NY-gSy" firstAttribute="centerY" secondItem="ixB-u9-o6n" secondAttribute="centerY" id="8hR-DH-laq"/>
+                            <constraint firstItem="bDi-pf-7HX" firstAttribute="trailing" secondItem="qMl-Qj-f0Z" secondAttribute="trailing" constant="20" id="9vj-1r-cfJ"/>
+                            <constraint firstItem="G93-NY-gSy" firstAttribute="leading" secondItem="bDi-pf-7HX" secondAttribute="leading" constant="60" id="YjT-sv-v4Y"/>
+                            <constraint firstItem="qMl-Qj-f0Z" firstAttribute="leading" secondItem="bDi-pf-7HX" secondAttribute="leading" constant="20" id="cEZ-nt-nix"/>
+                            <constraint firstItem="bDi-pf-7HX" firstAttribute="bottom" secondItem="qMl-Qj-f0Z" secondAttribute="bottom" constant="20" id="vEN-Al-khw"/>
+                            <constraint firstItem="G93-NY-gSy" firstAttribute="centerX" secondItem="ixB-u9-o6n" secondAttribute="centerX" id="y5o-LP-N15"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bDi-pf-7HX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Play the game" id="Wn4-Kw-wZg"/>
+                    <connections>
+                        <outlet property="timerView" destination="G93-NY-gSy" id="JeQ-WW-jBt"/>
+                        <segue destination="w7c-EH-4Yt" kind="presentation" identifier="toResultVC" modalPresentationStyle="fullScreen" id="Hqx-la-KDW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uzS-Bh-3Od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2601" y="130"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="R6A-my-QqF">
+            <objects>
+                <viewController id="w7c-EH-4Yt" customClass="ResultViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3hp-zM-NHT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ci-3Q-8GJ">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IPg-3y-39Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="Restart Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="restartGame:" destination="w7c-EH-4Yt" eventType="touchUpInside" id="5x9-MK-HwI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who was the spy?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1W-jZ-iEG">
+                                <rect key="frame" x="86" y="319" width="203.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="H7v-Wl-62h" firstAttribute="trailing" secondItem="7Ci-3Q-8GJ" secondAttribute="trailing" constant="20" id="C7v-PJ-BVv"/>
+                            <constraint firstItem="h1W-jZ-iEG" firstAttribute="centerX" secondItem="3hp-zM-NHT" secondAttribute="centerX" id="Zaq-78-o8B"/>
+                            <constraint firstItem="7Ci-3Q-8GJ" firstAttribute="leading" secondItem="H7v-Wl-62h" secondAttribute="leading" constant="20" id="lod-XL-OFL"/>
+                            <constraint firstItem="h1W-jZ-iEG" firstAttribute="centerY" secondItem="3hp-zM-NHT" secondAttribute="centerY" id="thm-f1-JL8"/>
+                            <constraint firstItem="H7v-Wl-62h" firstAttribute="bottom" secondItem="7Ci-3Q-8GJ" secondAttribute="bottom" constant="20" id="zNe-wo-oZu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H7v-Wl-62h"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pOW-Cd-b2Y"/>
+                    <connections>
+                        <segue destination="nCX-It-km8" kind="unwind" identifier="unwind1" unwindAction="prepareForUnwindWithSegue:" id="fqg-di-cX7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhP-WS-rNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="nCX-It-km8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3409" y="130"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D3a-3Y-IOc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfo-tg-JXI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OCH-nb-udL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GCY-H0-xJ4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cn7-t1-AP1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+</document>

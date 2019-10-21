@@ -1,0 +1,16 @@
+PODS:
+  - SRCountdownTimer (1.1)
+
+DEPENDENCIES:
+  - SRCountdownTimer
+
+SPEC REPOS:
+  trunk:
+    - SRCountdownTimer
+
+SPEC CHECKSUMS:
+  SRCountdownTimer: 9c92e444b5403c92f01dd6610299b8c634bc8562
+
+PODFILE CHECKSUM: 7890c96944da99fcb83de6d82f1841e3ed448897
+
+COCOAPODS: 1.8.4

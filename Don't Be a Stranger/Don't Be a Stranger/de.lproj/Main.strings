@@ -1,0 +1,21 @@
+/* Class = "UIButton"; normalTitle = "Restart"; ObjectID = "1dJ-Mo-fVV"; */
+"1dJ-Mo-fVV.normalTitle" = "Neustart";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2sF-eO-LNQ"; */
+"2sF-eO-LNQ.text" = "Etikette";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "aSB-BO-uTb"; */
+"aSB-BO-uTb.normalTitle" = "Zurück";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bUa-Br-LvJ"; */
+"bUa-Br-LvJ.text" = "Etikette";
+
+/* Class = "UIButton"; normalTitle = "Rules"; ObjectID = "tMd-PX-cxI"; */
+"tMd-PX-cxI.normalTitle" = "Regeln";
+
+/* Class = "UILabel"; text = "Rules"; ObjectID = "yGO-BR-jOO"; */
+"yGO-BR-jOO.text" = "Regeln";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ZPb-tJ-JUd"; */
+"ZPb-tJ-JUd.text" = "Etikette";
+

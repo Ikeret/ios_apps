@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bfo-tg-JXI">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="Lje-km-fZ0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uxo-2T-nmY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9j-Zh-47c">
-                                <rect key="frame" x="20" y="116" width="335" height="531"/>
+                                <rect key="frame" x="20" y="160" width="374" height="682"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Do-hd-tiE">
-                                        <rect key="frame" x="20" y="40" width="295" height="471"/>
+                                        <rect key="frame" x="20" y="40" width="334" height="622"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <string key="text">Start of the game - everyone takes turns transferring the device and finding out their roles. All players except the spy have the same location, for example, Restaurant. At first, no one knows who the spy is. The task of the players is to calculate it. You need to do this by asking questions in turn to each other, for example - When was the last time you visited this place? The spy does not know the location, so he may not answer exactly. Each player can ask one player a choice, then this player asks a question to someone else. The spy, in his turn, must understand the location on issues. If he guessed about the location, he could name it and win. If a player has suspicions of someone, he has the right to say - I know who the spy is! At the score of 3, all players point their finger at the suspect. If everyone pointed to one player (except himself), then the game ends: either the players figured out the spy or not. If the opinions do not coincide, then the game continues. In the next game, the first one asks who was a spy.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,32 +62,32 @@
             <objects>
                 <viewController storyboardIdentifier="StartVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJf-MK-qI2">
-                                <rect key="frame" x="20" y="180" width="335" height="307"/>
+                                <rect key="frame" x="20" y="295" width="374" height="306"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AyW-Qe-Qje">
-                                        <rect key="frame" x="10" y="10" width="315" height="247"/>
+                                        <rect key="frame" x="10" y="10" width="354" height="246"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrq-gN-ve7">
-                                                <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="28.666666666666668"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sIg-AA-Yos">
-                                                <rect key="frame" x="0.0" y="79" width="315" height="59"/>
+                                                <rect key="frame" x="0.0" y="78.666666666666686" width="354" height="58.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of time: 3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E92-cI-Wjl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.3999999999999999" minValue="3" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-dE-OKa">
-                                                        <rect key="frame" x="-2" y="29" width="319" height="31"/>
+                                                        <rect key="frame" x="-2" y="28.666666666666629" width="358" height="31"/>
                                                         <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <action selector="amountTime:" destination="BYZ-38-t0r" eventType="valueChanged" id="HIm-SY-PZo"/>
@@ -96,16 +96,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TMJ-9a-StG">
-                                                <rect key="frame" x="0.0" y="188" width="315" height="59"/>
+                                                <rect key="frame" x="0.0" y="187.33333333333331" width="354" height="58.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of players: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGf-9U-3Yy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="28.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.3999999999999999" minValue="3" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kin-b7-gOG">
-                                                        <rect key="frame" x="-2" y="29" width="319" height="31"/>
+                                                        <rect key="frame" x="-2" y="28.666666666666686" width="358" height="31"/>
                                                         <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <action selector="numberPlayers:" destination="BYZ-38-t0r" eventType="valueChanged" id="4EU-J2-DFL"/>
@@ -130,7 +130,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdm-dK-ZkC">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fIk-ZR-9p6"/>
@@ -164,7 +164,7 @@
                     <navigationItem key="navigationItem" title="Spy Game" id="hsH-5j-17U">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="bsg-co-S14">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Oj5-JK-EPK">
-                                <rect key="frame" x="267" y="4" width="92" height="36"/>
+                                <rect key="frame" x="302" y="4" width="92" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -196,11 +196,11 @@
             <objects>
                 <viewController id="4hc-qX-1ky" customClass="RolesViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jkp-LX-P4G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-Nm-I3d">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VJs-JO-SeM"/>
@@ -219,13 +219,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-7M-OH4">
-                                <rect key="frame" x="20" y="146" width="335" height="29"/>
+                                <rect key="frame" x="20" y="190" width="374" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz6-3T-dmj">
-                                <rect key="frame" x="20" y="518" width="335" height="29"/>
+                                <rect key="frame" x="20" y="713.33333333333337" width="374" height="28.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -261,11 +261,11 @@
             <objects>
                 <viewController id="JTm-NJ-8Aq" customClass="TimerViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ixB-u9-o6n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-Qj-f0Z">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="o7Y-ZV-V3O"/>
@@ -284,7 +284,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G93-NY-gSy" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
-                                <rect key="frame" x="60" y="206" width="255" height="255"/>
+                                <rect key="frame" x="60" y="301" width="294" height="294"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="G93-NY-gSy" secondAttribute="height" multiplier="1:1" id="qhV-7c-dNf"/>
@@ -326,11 +326,11 @@
             <objects>
                 <viewController id="w7c-EH-4Yt" customClass="ResultViewController" customModule="Spy_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hp-zM-NHT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ci-3Q-8GJ">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IPg-3y-39Z"/>
@@ -349,7 +349,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who was the spy?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1W-jZ-iEG">
-                                <rect key="frame" x="86" y="319" width="203.5" height="29"/>
+                                <rect key="frame" x="105.33333333333333" y="433.66666666666669" width="203.33333333333337" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -381,7 +381,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfo-tg-JXI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OCH-nb-udL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

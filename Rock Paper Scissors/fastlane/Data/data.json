@@ -1,0 +1,21 @@
+{
+  "FASTLANE_USER": "florentiyfokin@eunioner.info",
+  "FASTLANE_PASSWORD": "h487Su2%",
+  "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "rwam-bgev-ywfv-wbcv",
+  "app_identifier": "com.Rock-Paper-Scissors-Game",
+  "app_name": "Rock, Paper, Scissors X",
+  "language_": "Russian",
+  "language": "English",
+  "target": "Rock Paper Scissors",
+  "primary_category_": "Education",
+  "primary_category": "Entertainment",
+  "first_name": "Florentiy",
+  "last_name": "Fokin",
+  "demo_user": "",
+  "demo_password": "",
+  "notes": "Multiplayer game require one more device which both are connected to the same wi-fi",
+  "description": "The simplest cool app which represent the famous game reflected in its name. In-game features: different difficulty levels for single player, oppotunity to change avatar in the game, multiplayer over wi-fi.",
+  "keywords": "game, rock paper scissors, multiplayer, game with a friend",
+  "promotional_text": "Interesting game for play with a friend.",
+  "git_url": "https://github.com/Ikeret/repo.git"
+}

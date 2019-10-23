@@ -1,0 +1,21 @@
+{
+  "FASTLANE_USER": "olgakuznetsova@eunioner.info",
+  "FASTLANE_PASSWORD": "K0oW2&*7",
+  "FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD": "qbre-bfbq-ryin-blgq",
+  "app_identifier": "com.Numbers-X",
+  "app_name": "Random Numbers X",
+  "language_": "Russian",
+  "language": "English",
+  "target": "Numbers",
+  "primary_category_": "Education",
+  "primary_category": "Entertainment",
+  "first_name": "Olga",
+  "last_name": "Kuznetsova",
+  "demo_user": "",
+  "demo_password": "",
+  "notes": "",
+  "description": "A compact application that allows you to quickly get a random number, for example, in order to choose which TV series to watch. You can also roll dice for board games if you do not have them.",
+  "keywords": "randomizer, random numbers, dice, random generator",
+  "promotional_text": "The most for the board game, if you lost the dice.",
+  "git_url": "https://github.com/Ikeret/repo.git"
+}

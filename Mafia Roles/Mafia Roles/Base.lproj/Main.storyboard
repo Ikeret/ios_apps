@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U7D-Ek-CSG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Мафия-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mafia_Roles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w2m-x8-H6O">
+                                <rect key="frame" x="20" y="740" width="374" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLY-DU-t7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Настройки">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="STr-vM-SYX" kind="show" id="cel-nQ-fxx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETH-WP-Ez0">
+                                        <rect key="frame" x="0.0" y="61" width="374" height="41"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Начать распределение">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="tKa-PD-Ipc" kind="show" id="p1C-wD-dXZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uju-tb-EXo">
+                                <rect key="frame" x="20" y="190" width="374" height="500"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQw-tW-ivj">
+                                        <rect key="frame" x="20" y="50" width="334" height="430"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <string key="text">Это приложение создано для удобства распределения ролей при игре в мафию. Настройте роли и начните распределение, передавая телефон по-очереди каждому игроку.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vQw-tW-ivj" secondAttribute="trailing" constant="20" id="T0B-fy-mRd"/>
+                                    <constraint firstItem="vQw-tW-ivj" firstAttribute="leading" secondItem="Uju-tb-EXo" secondAttribute="leading" constant="20" id="lXA-1Z-qDF"/>
+                                    <constraint firstItem="vQw-tW-ivj" firstAttribute="top" secondItem="Uju-tb-EXo" secondAttribute="top" constant="50" id="qVp-wF-POO"/>
+                                    <constraint firstAttribute="bottom" secondItem="vQw-tW-ivj" secondAttribute="bottom" constant="20" id="uPM-dr-Qdu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uju-tb-EXo" secondAttribute="trailing" constant="20" id="24G-mN-JXl"/>
+                            <constraint firstItem="w2m-x8-H6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4V8-nS-hBd"/>
+                            <constraint firstItem="Uju-tb-EXo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="SzT-Ec-8yE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w2m-x8-H6O" secondAttribute="trailing" constant="20" id="U1G-x4-hv3"/>
+                            <constraint firstItem="w2m-x8-H6O" firstAttribute="top" secondItem="Uju-tb-EXo" secondAttribute="bottom" constant="50" id="dwr-pq-WSB"/>
+                            <constraint firstItem="Uju-tb-EXo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iFo-2W-fQg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w2m-x8-H6O" secondAttribute="bottom" constant="20" id="qQU-fl-fLs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Мафия" id="PUu-TD-j3E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="110.49107142857143"/>
+        </scene>
+        <!--Распределение-->
+        <scene sceneID="Qkh-7h-EsP">
+            <objects>
+                <viewController id="tKa-PD-Ipc" customClass="DestribViewController" customModule="Mafia_Roles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gv2-Ww-rSO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHp-87-I8W">
+                                <rect key="frame" x="20" y="801" width="374" height="41"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ОК">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="okAction:" destination="tKa-PD-Ipc" eventType="touchUpInside" id="NyK-St-fxK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZr-Tq-JAG">
+                                <rect key="frame" x="20" y="190" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9n-Yt-zOG">
+                                <rect key="frame" x="20" y="722" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nHp-87-I8W" firstAttribute="leading" secondItem="Gv2-Ww-rSO" secondAttribute="leading" constant="20" id="4Jg-wl-Maj"/>
+                            <constraint firstItem="gjM-2e-k2r" firstAttribute="bottom" secondItem="nHp-87-I8W" secondAttribute="bottom" constant="20" id="4ve-Kg-o9c"/>
+                            <constraint firstItem="sZr-Tq-JAG" firstAttribute="leading" secondItem="gjM-2e-k2r" secondAttribute="leading" constant="20" id="C2u-pX-6ym"/>
+                            <constraint firstItem="gjM-2e-k2r" firstAttribute="trailing" secondItem="nHp-87-I8W" secondAttribute="trailing" constant="20" id="DO8-pM-6B2"/>
+                            <constraint firstItem="gjM-2e-k2r" firstAttribute="trailing" secondItem="sZr-Tq-JAG" secondAttribute="trailing" constant="20" id="Jqh-wi-vq6"/>
+                            <constraint firstItem="nHp-87-I8W" firstAttribute="top" secondItem="k9n-Yt-zOG" secondAttribute="bottom" constant="50" id="VQu-N6-PNz"/>
+                            <constraint firstItem="k9n-Yt-zOG" firstAttribute="leading" secondItem="gjM-2e-k2r" secondAttribute="leading" constant="20" id="kYO-h0-Lcx"/>
+                            <constraint firstAttribute="trailing" secondItem="k9n-Yt-zOG" secondAttribute="trailing" constant="20" id="tcg-L9-dXf"/>
+                            <constraint firstItem="sZr-Tq-JAG" firstAttribute="top" secondItem="gjM-2e-k2r" secondAttribute="top" constant="50" id="x3z-3H-5wG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gjM-2e-k2r"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Распределение" id="CTE-Ho-Y0O"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="k9n-Yt-zOG" id="Ptu-t4-Swt"/>
+                        <outlet property="roleLabel" destination="sZr-Tq-JAG" id="gbc-m6-uae"/>
+                        <segue destination="Mdq-ig-mu1" kind="unwind" identifier="unwind" unwindAction="unwindToStart:" id="okS-Cd-dFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anA-XU-5vm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Mdq-ig-mu1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="320"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="uPH-HH-zcC">
+            <objects>
+                <viewController id="STr-vM-SYX" customClass="SettingsViewController" customModule="Mafia_Roles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dQZ-jE-d2g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-HB-1LL">
+                                <rect key="frame" x="20" y="160" width="374" height="511"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pSI-7q-Gyn">
+                                        <rect key="frame" x="20" y="50" width="334" height="411"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FFa-lS-uIe">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество мирных: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7og-Ke-oAr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="uPA-iR-Dd6">
+                                                        <rect key="frame" x="-2" y="29" width="338" height="31"/>
+                                                        <connections>
+                                                            <action selector="playersSlider:" destination="STr-vM-SYX" eventType="valueChanged" id="VEg-z4-PfK"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7G5-QX-Rga">
+                                                <rect key="frame" x="0.0" y="109" width="334" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество мафиози: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="YI1-QL-Kju">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.3999999999999999" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Nd-PO-Znv">
+                                                        <rect key="frame" x="-2" y="29" width="338" height="31"/>
+                                                        <connections>
+                                                            <action selector="mafiasSlider:" destination="STr-vM-SYX" eventType="valueChanged" id="Yt9-zV-w53"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-00-koa">
+                                                <rect key="frame" x="0.0" y="218" width="334" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-dy-CLR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aef-Q4-Fql">
+                                                        <rect key="frame" x="285" y="0.0" width="51" height="31"/>
+                                                        <color key="onTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="medicSwitch:" destination="STr-vM-SYX" eventType="valueChanged" id="0Sh-LF-tgD"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rr9-Gc-XcC">
+                                                <rect key="frame" x="0.0" y="299" width="334" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комиссар (Шериф)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="brq-dO-hAD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlc-Rm-K8P">
+                                                        <rect key="frame" x="285" y="0.0" width="51" height="31"/>
+                                                        <color key="onTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="sherifSwitch:" destination="STr-vM-SYX" eventType="valueChanged" id="94d-4N-uO4"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z63-lO-vVm">
+                                                <rect key="frame" x="0.0" y="380" width="334" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Маньяк" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ic-1U-DyD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ob-YW-vDV">
+                                                        <rect key="frame" x="285" y="0.0" width="51" height="31"/>
+                                                        <color key="onTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="maniacSwitch:" destination="STr-vM-SYX" eventType="valueChanged" id="aLm-sr-Am7"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pSI-7q-Gyn" secondAttribute="trailing" constant="20" id="E1K-Gr-FNq"/>
+                                    <constraint firstItem="pSI-7q-Gyn" firstAttribute="leading" secondItem="fmm-HB-1LL" secondAttribute="leading" constant="20" id="Yj4-gt-vyz"/>
+                                    <constraint firstItem="pSI-7q-Gyn" firstAttribute="top" secondItem="fmm-HB-1LL" secondAttribute="top" constant="50" id="aD1-2V-2eE"/>
+                                    <constraint firstAttribute="bottom" secondItem="pSI-7q-Gyn" secondAttribute="bottom" constant="50" id="u0R-tp-gqB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Hbh-42-7gy" firstAttribute="trailing" secondItem="fmm-HB-1LL" secondAttribute="trailing" constant="20" id="MSH-UP-xy6"/>
+                            <constraint firstItem="fmm-HB-1LL" firstAttribute="leading" secondItem="Hbh-42-7gy" secondAttribute="leading" constant="20" id="QE0-Cb-tJn"/>
+                            <constraint firstItem="fmm-HB-1LL" firstAttribute="top" secondItem="Hbh-42-7gy" secondAttribute="top" constant="20" id="p4H-Eo-mIh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hbh-42-7gy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Настройки" id="xGy-W1-PoI"/>
+                    <connections>
+                        <outlet property="mafiasLabel" destination="YI1-QL-Kju" id="ql5-Po-HmL"/>
+                        <outlet property="mafiasSliderOutlet" destination="0Nd-PO-Znv" id="3Gl-fY-ghM"/>
+                        <outlet property="maniacSwitchOutlet" destination="0Ob-YW-vDV" id="YTT-Zd-Kn6"/>
+                        <outlet property="medicSwitchOutlet" destination="aef-Q4-Fql" id="8XP-aT-j6N"/>
+                        <outlet property="playersLabel" destination="7og-Ke-oAr" id="tMC-eK-QW4"/>
+                        <outlet property="playersSliderOutlet" destination="uPA-iR-Dd6" id="dLX-c6-Gga"/>
+                        <outlet property="sherifSwitchOutlet" destination="hlc-Rm-K8P" id="DlZ-gO-YS0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bK-9a-Sya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="-357"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BK5-D5-wii">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U7D-Ek-CSG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="DVu-XQ-WS0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="w0O-OI-rw0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmx-MS-3MR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
+        </scene>
+    </scenes>
+</document>

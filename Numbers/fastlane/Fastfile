@@ -1,0 +1,171 @@
+#git clone https://bitbucket.org/medef/fastlane.git
+
+default_platform(:ios)
+
+platform :ios do
+  ENV["FASTLANE_USER"] = "agafyakaryavina@eunioner.info"
+  ENV["FASTLANE_PASSWORD"] = "Y2zS9t0Y"
+  ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "wlbe-wnjd-gict-cxpa"
+
+  lane :newApp do
+    data = polydev_get_data
+    ENV["FASTLANE_USER"] = data["FASTLANE_USER"]
+    ENV["FASTLANE_PASSWORD"] = data["FASTLANE_PASSWORD"]
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = data["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"]
+    app_identifier = data["app_identifier"]
+    team_name = "Nikolay Chemerkin"
+    register_devices(
+      devices: {
+        "iPad Mini Rab_Dom" => "A6A6ECF35D4E9D9E1AD119CDE7C23440331EC825",
+      }
+    )
+    create_app_online(
+      username: ENV["FASTLANE_USER"],
+      app_identifier: app_identifier,
+      app_name: data["app_name"],
+      language: data["language"],
+      app_version: "1.0",
+      sku: "#{(1...10).map { ('a'..'z').to_a[rand(26)] }.join}#{rand(9)}#{rand(9)}#{rand(9)}",
+      # team_name: team_name, # Only necessary when in multiple teams.
+      # itc_team_id: "118705364" # Only necessary when in multiple teams.
+    )
+    ENV["git_url_polydev"] = data["git_url"]
+    polydev_git
+    sync_code_signing(type: "appstore", git_url: data["git_url"], app_identifier: app_identifier)
+    target = data["target"]
+    if Dir.exist?('../Pods')
+      build_app(workspace: "#{target}.xcworkspace", scheme: "#{target}")
+    else
+      build_app(scheme: "#{target}")
+    end
+    telephoneNum = "+79#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
+    email = "#{(1...10).map { ('a'..'z').to_a[rand(26)] }.join}@gmail.com"
+
+    urls = polydev_google_docs
+
+    description_hash = ""
+    keywords_hash = ""
+    promotional_text_hash = ""
+    privacy_url_hash = ""
+    support_url_hash = ""
+    if data["language"] == "Russian"
+      description_hash = {
+        "ru": data["description"]
+      }
+      keywords_hash = {
+        "ru": data["keywords"]
+      }
+      promotional_text_hash = {
+        "ru": data["promotional_text"]
+      }
+      privacy_url_hash = {
+        "ru": urls[0]
+      }
+      support_url_hash = {
+        "ru": urls[1]
+      }
+    else
+      description_hash = {
+        "en-US": data["description"]
+      }
+      keywords_hash = {
+        "en-US": data["keywords"]
+      }
+      promotional_text_hash = {
+        "en-US": data["promotional_text"]
+      }
+      privacy_url_hash = {
+        "en-US": urls[0]
+      }
+      support_url_hash = {
+        "en-US": urls[1]
+      }
+    end
+
+    # privacy_url = ""
+    # support_url = ""
+    upload_to_app_store(
+      username: ENV["FASTLANE_USER"],
+      app_identifier: app_identifier,
+      force: true,
+      overwrite_screenshots: true,
+      submit_for_review: true,
+      reject_if_possible: true,
+      automatic_release: true,
+      submission_information: {
+        add_id_info_limits_tracking: false,
+        add_id_info_serves_ads: false,
+        add_id_info_tracks_action: false,
+        add_id_info_tracks_install: false,
+        add_id_info_uses_idfa: false,
+        content_rights_has_rights: true,
+        content_rights_contains_third_party_content: false,
+        export_compliance_platform: 'ios',
+        export_compliance_compliance_required: false,
+        export_compliance_encryption_updated: false,
+        export_compliance_app_type: nil,
+        export_compliance_uses_encryption: false,
+        export_compliance_is_exempt: false,
+        export_compliance_contains_third_party_cryptography: false,
+        export_compliance_contains_proprietary_cryptography: false,
+        export_compliance_available_on_french_store: false
+      },
+      price_tier: "0",
+      copyright: "2019 jonyvee",
+      app_rating_config_path: "fastlane/Data/age.json",
+      primary_category: data["primary_category"],
+      trade_representative_contact_information: {
+          first_name: data["first_name"],
+          last_name: data["last_name"],
+          phone_number: telephoneNum,
+          email_address: email,
+        },
+        app_review_information: {
+            first_name: data["first_name"],
+            last_name: data["last_name"],
+            phone_number: telephoneNum,
+            email_address: email,
+            demo_user: data["demo_user"],
+            demo_password: data["demo_password"],
+            notes: data["notes"]
+          },
+      description: description_hash,
+      keywords: keywords_hash,
+      promotional_text: promotional_text_hash,
+      privacy_url: privacy_url_hash,
+      support_url: support_url_hash,
+    )
+    ENV["APP_NAME"] = data["app_name"]
+    polydev_trello
+  end
+
+  lane :test do
+    data = polydev_get_data
+    app_identifier = data["app_identifier"]
+    ENV["git_url_polydev"] = data["git_url"]
+    ENV["FASTLANE_USER"] = data["FASTLANE_USER"]
+    ENV["FASTLANE_PASSWORD"] = data["FASTLANE_PASSWORD"]
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = data["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"]
+    create_app_online(
+      username: ENV["FASTLANE_USER"],
+      app_identifier: app_identifier,
+      app_name: data["app_name"],
+      language: data["language"],
+      app_version: "1.0",
+      sku: "#{(1...10).map { ('a'..'z').to_a[rand(26)] }.join}#{rand(9)}#{rand(9)}#{rand(9)}",
+      # team_name: team_name, # Only necessary when in multiple teams.
+      # itc_team_id: "118705364" # Only necessary when in multiple teams.
+    )
+    # polydev_git
+    # sync_code_signing(type: "development", git_url: data["git_url"], app_identifier: app_identifier)
+    # polydev_git
+    # sync_code_signing(type: "appstore", git_url: data["git_url"], app_identifier: app_identifier)
+    # target = data["target"]
+    # if Dir.exist?('../Pods')
+    #   build_app(workspace: "#{target}.xcworkspace", scheme: "#{target}")
+    # else
+    #   build_app(scheme: "#{target}")
+    # end
+  end
+
+end

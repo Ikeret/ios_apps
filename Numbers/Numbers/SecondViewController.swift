@@ -35,7 +35,21 @@ class SecondViewController: UIViewController {
         countDice = Int(stepper.value)
         numOfDice.text = "Number of Dice: \(countDice)"
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            generate(0)
+        }
+    }
+    
     @IBAction func generate(_ sender: Any) {
+        if !launchedBefore {
+            let alert = UIAlertController(title: "You can shake your iPhone instead of pushing button.", message: nil, preferredStyle: .alert)
+            alert.addAction(.init(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            launchedBefore = true
+        }
         randomNum = 0
         hide_dice()
         for i in 0..<countDice {

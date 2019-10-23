@@ -50,16 +50,30 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         }
         secondNum = value!
     }
-    @IBAction func generate(_ sender: UIButton) {
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            generate(0)
+        }
+    }
+    
+    @IBAction func generate(_ sender: Any) {
+        if !launchedBefore {
+            let alert = UIAlertController(title: "You can shake your iPhone instead of pushing button.", message: nil, preferredStyle: .alert)
+            alert.addAction(.init(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            launchedBefore = true
+        }
         guard firstNum < secondNum else {
-            randomNum.text = "Error"
-            randomNum.textColor = .red
+            let alert = UIAlertController(title: "Error", message: "First value must be less then second value!", preferredStyle: .alert)
+            alert.addAction(.init(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
             return
         }
         
         let randomValue = Int.random(in: firstNum...secondNum)
         randomNum.text = "\(randomValue)"
-        randomNum.textColor = .black
     }
 
 }

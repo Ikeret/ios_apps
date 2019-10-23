@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		182B46142360CB83009DEAEB /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
-		185D812F22D3A8D800F9B46D /* Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		185D812F22D3A8D800F9B46D /* Numbers X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numbers X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		185D813222D3A8D800F9B46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185D813422D3A8D800F9B46D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		185D813622D3A8D800F9B46D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		185D813022D3A8D800F9B46D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				185D812F22D3A8D800F9B46D /* Numbers.app */,
+				185D812F22D3A8D800F9B46D /* Numbers X.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			);
 			name = Numbers;
 			productName = Numbers;
-			productReference = 185D812F22D3A8D800F9B46D /* Numbers.app */;
+			productReference = 185D812F22D3A8D800F9B46D /* Numbers X.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -299,7 +299,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Numbers-X";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Numbers X";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -318,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Numbers-X";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Numbers X";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

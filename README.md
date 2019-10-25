@@ -1,16 +1,11 @@
 # Developer: Sergey Korshunov
 
-## Mafia Roles
-https://apps.apple.com/ru/app/mafia-roles/id1484553128
+## Mafia Roles: https://apps.apple.com/ru/app/mafia-roles/id1484553128
 
-## Rock Paper Scissors
-https://apps.apple.com/ru/app/rock-paper-scissors-x/id1484516597
+## Rock Paper Scissors: https://apps.apple.com/ru/app/rock-paper-scissors-x/id1484516597
 
-## Rassword Generator
-https://apps.apple.com/ru/app/password-random-generator/id1484210300
+## Rassword Generator: https://apps.apple.com/ru/app/password-random-generator/id1484210300
 
-## Spy Game
-https://apps.apple.com/ru/app/amazing-spy-game/id1484389077
+## Spy Game: https://apps.apple.com/ru/app/amazing-spy-game/id1484389077
 
-## Don't Be a Stranger
-https://apps.apple.com/ru/app/dont-be-a-stranger/id1484343516
+## Don't Be a Stranger: https://apps.apple.com/ru/app/dont-be-a-stranger/id1484343516

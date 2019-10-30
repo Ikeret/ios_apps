@@ -1,0 +1,30 @@
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "1Lu-Mq-6BB"; */
+"1Lu-Mq-6BB.normalTitle" = "Добавить";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "2of-gQ-fGR"; */
+"2of-gQ-fGR.normalTitle" = "Добавить";
+
+/* Class = "UINavigationItem"; title = "My Look"; ObjectID = "2qa-3X-s3Z"; */
+"2qa-3X-s3Z.title" = "Мой Образ";
+
+/* Class = "UIButton"; normalTitle = "Bottom"; ObjectID = "7Vo-KG-QSb"; */
+"7Vo-KG-QSb.normalTitle" = "Низ";
+
+/* Class = "UITabBarItem"; title = "My Clothes"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Мой Гардероб";
+
+/* Class = "UINavigationItem"; title = "Top Clothes"; ObjectID = "diE-HV-4RU"; */
+"diE-HV-4RU.title" = "Верхняя Одежда";
+
+/* Class = "UINavigationItem"; title = "Bottom Clothes"; ObjectID = "j2H-ok-Sk3"; */
+"j2H-ok-Sk3.title" = "Нижняя Одежда";
+
+/* Class = "UITabBarItem"; title = "My Look"; ObjectID = "nlu-1N-zRW"; */
+"nlu-1N-zRW.title" = "Мой образ";
+
+/* Class = "UIButton"; normalTitle = "Top"; ObjectID = "NXC-ek-rBP"; */
+"NXC-ek-rBP.normalTitle" = "Верх";
+
+/* Class = "UINavigationItem"; title = "My Clothes"; ObjectID = "oqm-VU-olC"; */
+"oqm-VU-olC.title" = "Мой Гардероб";
+

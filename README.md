@@ -9,3 +9,5 @@
 ## Spy Game: https://apps.apple.com/ru/app/amazing-spy-game/id1484389077
 
 ## Don't Be a Stranger: https://apps.apple.com/ru/app/dont-be-a-stranger/id1484343516
+
+## My InstaLook: https://apps.apple.com/ru/app/my-instalook/id1485684800

@@ -11,3 +11,5 @@
 ## Don't Be a Stranger: https://apps.apple.com/ru/app/dont-be-a-stranger/id1484343516
 
 ## My InstaLook: https://apps.apple.com/ru/app/my-instalook/id1485684800
+
+## CryptoSearcher: https://apps.apple.com/ru/app/cryptosearcher/id1485816204

@@ -1,0 +1,29 @@
+PODS:
+  - EFFoundation (1.1.1):
+    - EFFoundation/Core (= 1.1.1)
+  - EFFoundation/Core (1.1.1)
+  - EFQRCode (5.1.3):
+    - EFFoundation (>= 1.1.1)
+    - EFQRCode/Core (= 5.1.3)
+  - EFQRCode/Core (5.1.3):
+    - EFFoundation (>= 1.1.1)
+  - SPAlert (1.1.1)
+
+DEPENDENCIES:
+  - EFQRCode (~> 5.1.3)
+  - SPAlert
+
+SPEC REPOS:
+  trunk:
+    - EFFoundation
+    - EFQRCode
+    - SPAlert
+
+SPEC CHECKSUMS:
+  EFFoundation: 26a2731ace3e22cf5f7bb45d28c6afbc945959dd
+  EFQRCode: 0979a5c181864085ca7f317b5b5c7b5bf496ad0e
+  SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
+
+PODFILE CHECKSUM: 31615f3939adf0d448928d6bc2471dbd55781966
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,9 @@
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "Приложению Qreator нужен доступ к вашей камере для получения фоновой картинки для QR кода.";
+
+/* Privacy - Photo Library Additions Usage Description */
+"NSPhotoLibraryAddUsageDescription" = "Приложению Qreator нужен доступ к вашей галерее для сохранения QR кода.";
+
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "Приложению Qreator нужен доступ к вашей галерее для получения фоновой картинки.";
+

@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		185B9F57236F435A00F0DF2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B9F56236F435A00F0DF2F /* AppDelegate.swift */; };
+		185B9F5B236F435A00F0DF2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B9F5A236F435A00F0DF2F /* ViewController.swift */; };
+		185B9F5E236F435A00F0DF2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185B9F5C236F435A00F0DF2F /* Main.storyboard */; };
+		185B9F60236F435D00F0DF2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185B9F5F236F435D00F0DF2F /* Assets.xcassets */; };
+		185B9F63236F435D00F0DF2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185B9F61236F435D00F0DF2F /* LaunchScreen.storyboard */; };
+		185B9F6B236F63E400F0DF2F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B9F6A236F63E400F0DF2F /* ResultViewController.swift */; };
+		185B9F6D236F643400F0DF2F /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B9F6C236F643400F0DF2F /* Contants.swift */; };
+		185B9F71236F8CEF00F0DF2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 185B9F6F236F8CEF00F0DF2F /* InfoPlist.strings */; };
+		185B9F74236F8CEF00F0DF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 185B9F72236F8CEF00F0DF2F /* Localizable.strings */; };
+		990F5026FA143FF4F97E034E /* Pods_Qreator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3E584EDFAECF20EF432757 /* Pods_Qreator.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E69A2E6782A62E753265B64 /* Pods-Qreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qreator.debug.xcconfig"; path = "Target Support Files/Pods-Qreator/Pods-Qreator.debug.xcconfig"; sourceTree = "<group>"; };
+		185B9F53236F435A00F0DF2F /* Qreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		185B9F56236F435A00F0DF2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		185B9F5A236F435A00F0DF2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		185B9F5D236F435A00F0DF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		185B9F5F236F435D00F0DF2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		185B9F62236F435D00F0DF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		185B9F64236F435D00F0DF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		185B9F6A236F63E400F0DF2F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		185B9F6C236F643400F0DF2F /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
+		185B9F6E236F896E00F0DF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		185B9F70236F8CEF00F0DF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		185B9F73236F8CEF00F0DF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A3E584EDFAECF20EF432757 /* Pods_Qreator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Qreator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFFF8741F441622180DB486 /* Pods-Qreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qreator.release.xcconfig"; path = "Target Support Files/Pods-Qreator/Pods-Qreator.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		185B9F50236F435A00F0DF2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				990F5026FA143FF4F97E034E /* Pods_Qreator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		185B9F4A236F435A00F0DF2F = {
+			isa = PBXGroup;
+			children = (
+				185B9F55236F435A00F0DF2F /* Qreator */,
+				185B9F54236F435A00F0DF2F /* Products */,
+				32F7B8B2A2E885238350543E /* Pods */,
+				60CA1A705F214C0F10884D94 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		185B9F54236F435A00F0DF2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				185B9F53236F435A00F0DF2F /* Qreator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		185B9F55236F435A00F0DF2F /* Qreator */ = {
+			isa = PBXGroup;
+			children = (
+				185B9F56236F435A00F0DF2F /* AppDelegate.swift */,
+				185B9F5A236F435A00F0DF2F /* ViewController.swift */,
+				185B9F6A236F63E400F0DF2F /* ResultViewController.swift */,
+				185B9F6C236F643400F0DF2F /* Contants.swift */,
+				185B9F5C236F435A00F0DF2F /* Main.storyboard */,
+				185B9F5F236F435D00F0DF2F /* Assets.xcassets */,
+				185B9F61236F435D00F0DF2F /* LaunchScreen.storyboard */,
+				185B9F64236F435D00F0DF2F /* Info.plist */,
+				185B9F72236F8CEF00F0DF2F /* Localizable.strings */,
+				185B9F6F236F8CEF00F0DF2F /* InfoPlist.strings */,
+			);
+			path = Qreator;
+			sourceTree = "<group>";
+		};
+		32F7B8B2A2E885238350543E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E69A2E6782A62E753265B64 /* Pods-Qreator.debug.xcconfig */,
+				DCFFF8741F441622180DB486 /* Pods-Qreator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		60CA1A705F214C0F10884D94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A3E584EDFAECF20EF432757 /* Pods_Qreator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		185B9F52236F435A00F0DF2F /* Qreator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 185B9F67236F435D00F0DF2F /* Build configuration list for PBXNativeTarget "Qreator" */;
+			buildPhases = (
+				29B674D69C92B11D99AD502A /* [CP] Check Pods Manifest.lock */,
+				185B9F4F236F435A00F0DF2F /* Sources */,
+				185B9F50236F435A00F0DF2F /* Frameworks */,
+				185B9F51236F435A00F0DF2F /* Resources */,
+				4AAB80D88186D96D76F9EA19 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Qreator;
+			productName = Qreator;
+			productReference = 185B9F53236F435A00F0DF2F /* Qreator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		185B9F4B236F435A00F0DF2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Сергей Коршунов";
+				TargetAttributes = {
+					185B9F52236F435A00F0DF2F = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = 185B9F4E236F435A00F0DF2F /* Build configuration list for PBXProject "Qreator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = 185B9F4A236F435A00F0DF2F;
+			productRefGroup = 185B9F54236F435A00F0DF2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				185B9F52236F435A00F0DF2F /* Qreator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		185B9F51236F435A00F0DF2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185B9F74236F8CEF00F0DF2F /* Localizable.strings in Resources */,
+				185B9F63236F435D00F0DF2F /* LaunchScreen.storyboard in Resources */,
+				185B9F71236F8CEF00F0DF2F /* InfoPlist.strings in Resources */,
+				185B9F60236F435D00F0DF2F /* Assets.xcassets in Resources */,
+				185B9F5E236F435A00F0DF2F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29B674D69C92B11D99AD502A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Qreator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AAB80D88186D96D76F9EA19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Qreator/Pods-Qreator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Qreator/Pods-Qreator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Qreator/Pods-Qreator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		185B9F4F236F435A00F0DF2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185B9F5B236F435A00F0DF2F /* ViewController.swift in Sources */,
+				185B9F57236F435A00F0DF2F /* AppDelegate.swift in Sources */,
+				185B9F6D236F643400F0DF2F /* Contants.swift in Sources */,
+				185B9F6B236F63E400F0DF2F /* ResultViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		185B9F5C236F435A00F0DF2F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185B9F5D236F435A00F0DF2F /* Base */,
+				185B9F6E236F896E00F0DF2F /* ru */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		185B9F61236F435D00F0DF2F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185B9F62236F435D00F0DF2F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		185B9F6F236F8CEF00F0DF2F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185B9F70236F8CEF00F0DF2F /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		185B9F72236F8CEF00F0DF2F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185B9F73236F8CEF00F0DF2F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		185B9F65236F435D00F0DF2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		185B9F66236F435D00F0DF2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		185B9F68236F435D00F0DF2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E69A2E6782A62E753265B64 /* Pods-Qreator.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ2PGML386;
+				INFOPLIST_FILE = Qreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Qreator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		185B9F69236F435D00F0DF2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCFFF8741F441622180DB486 /* Pods-Qreator.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ2PGML386;
+				INFOPLIST_FILE = Qreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Qreator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		185B9F4E236F435A00F0DF2F /* Build configuration list for PBXProject "Qreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185B9F65236F435D00F0DF2F /* Debug */,
+				185B9F66236F435D00F0DF2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		185B9F67236F435D00F0DF2F /* Build configuration list for PBXNativeTarget "Qreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185B9F68236F435D00F0DF2F /* Debug */,
+				185B9F69236F435D00F0DF2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 185B9F4B236F435A00F0DF2F /* Project object */;
+}

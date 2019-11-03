@@ -1,0 +1,39 @@
+/* Class = "UIButton"; normalTitle = "Generate"; ObjectID = "1xY-GU-03z"; */
+"1xY-GU-03z.normalTitle" = "Сгенерировать";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "c9c-o6-8OG"; */
+"c9c-o6-8OG.normalTitle" = "Поделиться";
+
+/* Class = "UIButton"; normalTitle = "Pick the image"; ObjectID = "eOW-g9-2ZN"; */
+"eOW-g9-2ZN.normalTitle" = "Выбрать картинку";
+
+/* Class = "UINavigationItem"; title = "Qreator"; ObjectID = "gOQ-1H-G4K"; */
+"gOQ-1H-G4K.title" = "Qreator";
+
+/* Class = "UISegmentedControl"; lHU-pf-MJL.segmentTitles[0] = "URL"; ObjectID = "lHU-pf-MJL"; */
+"lHU-pf-MJL.segmentTitles[0]" = "URL";
+
+/* Class = "UISegmentedControl"; lHU-pf-MJL.segmentTitles[1] = "Contant"; ObjectID = "lHU-pf-MJL"; */
+"lHU-pf-MJL.segmentTitles[1]" = "Контакт";
+
+/* Class = "UISegmentedControl"; lHU-pf-MJL.segmentTitles[2] = "Text"; ObjectID = "lHU-pf-MJL"; */
+"lHU-pf-MJL.segmentTitles[2]" = "Текст";
+
+/* Class = "UISegmentedControl"; lHU-pf-MJL.segmentTitles[3] = "SMS"; ObjectID = "lHU-pf-MJL"; */
+"lHU-pf-MJL.segmentTitles[3]" = "SMS";
+
+/* Class = "UITextField"; placeholder = "Enter message"; ObjectID = "lOd-lH-ZaG"; */
+"lOd-lH-ZaG.placeholder" = "Введите сообщение";
+
+/* Class = "UILabel"; text = "With backgroud image"; ObjectID = "pTt-Xv-MKn"; */
+"pTt-Xv-MKn.text" = "Фоновая картинка";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "shH-2w-RHn"; */
+"shH-2w-RHn.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Result"; ObjectID = "SQf-aZ-z0G"; */
+"SQf-aZ-z0G.title" = "Результат";
+
+/* Class = "UITextField"; placeholder = "Enter URL"; ObjectID = "up4-Hq-a2w"; */
+"up4-Hq-a2w.placeholder" = "Введите URL";
+

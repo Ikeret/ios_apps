@@ -15,3 +15,5 @@
 ## CryptoSearcher: https://apps.apple.com/ru/app/cryptosearcher/id1485816204
 
 ## My ShowRoom: https://apps.apple.com/ru/app/my-showroom/id1486037484
+
+## Qreator: https://apps.apple.com/ru/app/qreator/id1486111718

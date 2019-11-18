@@ -1,0 +1,20 @@
+PODS:
+  - CountdownLabel (4.0.1)
+  - SPAlert (1.1.1)
+
+DEPENDENCIES:
+  - CountdownLabel
+  - SPAlert
+
+SPEC REPOS:
+  trunk:
+    - CountdownLabel
+    - SPAlert
+
+SPEC CHECKSUMS:
+  CountdownLabel: c9975e3f329140b5e7d1f45cd63b1300badd1712
+  SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
+
+PODFILE CHECKSUM: 6cb4b64eb09338609bddda2dd625f2543e626d4a
+
+COCOAPODS: 1.8.4

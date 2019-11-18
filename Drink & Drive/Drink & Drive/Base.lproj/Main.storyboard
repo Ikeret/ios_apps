@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cpn-0j-1E0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Drink & Drive-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Drink___Drive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-Fa-Iyx" customClass="CountdownLabel" customModule="CountdownLabel">
+                                <rect key="frame" x="70" y="200" width="274" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4jp-YI-Do6">
+                                <rect key="frame" x="20" y="512" width="374" height="330"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your drink:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-IO-pkQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHQ-pG-WOz">
+                                        <rect key="frame" x="0.0" y="34" width="374" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="MPO-1J-aSh"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="tVv-es-N25"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eON-fj-p7f">
+                                        <rect key="frame" x="0.0" y="260" width="374" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="tzh-fa-Jti"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="Add drink"/>
+                                        <connections>
+                                            <action selector="addDrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qzb-gg-e5o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add drink to start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32W-rf-dyz">
+                                <rect key="frame" x="140.5" y="299" width="133.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="32W-rf-dyz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5qL-fM-GrE"/>
+                            <constraint firstItem="32W-rf-dyz" firstAttribute="top" secondItem="YmI-Fa-Iyx" secondAttribute="bottom" constant="20" id="AVe-hd-VAN"/>
+                            <constraint firstItem="YmI-Fa-Iyx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="KbZ-eu-cTe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YmI-Fa-Iyx" secondAttribute="trailing" constant="70" id="Wii-Ng-3TF"/>
+                            <constraint firstAttribute="trailing" secondItem="4jp-YI-Do6" secondAttribute="trailing" constant="20" id="XW2-eN-TKs"/>
+                            <constraint firstItem="4jp-YI-Do6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cnz-HK-GEr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4jp-YI-Do6" secondAttribute="bottom" constant="20" id="fhc-kT-H4T"/>
+                            <constraint firstItem="YmI-Fa-Iyx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="nIr-gc-r7k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Drink &amp; Drive" id="SLs-T5-gW3">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="1lh-rI-DVn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7HR-ev-Rvn">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset timer"/>
+                                <connections>
+                                    <action selector="resetTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mh6-Fk-EvA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vKh-NA-lbL">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BNw-mI-t3U">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="sPI-1e-C0g" kind="show" id="VSc-aM-mcA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addDrinkButtonOutlet" destination="eON-fj-p7f" id="Tn5-kX-v0f"/>
+                        <outlet property="dateToDriveLabel" destination="32W-rf-dyz" id="fvX-8c-qj2"/>
+                        <outlet property="drinkInfoLabel" destination="4MR-IO-pkQ" id="Cx6-u7-cCk"/>
+                        <outlet property="drinkPicker" destination="QHQ-pG-WOz" id="Nz2-a6-gqh"/>
+                        <outlet property="resetTimerButton" destination="7HR-ev-Rvn" id="kcC-9F-qZj"/>
+                        <outlet property="timerLabel" destination="YmI-Fa-Iyx" id="pXw-cL-3vp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="130"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="FFW-da-iDw">
+            <objects>
+                <viewController id="sPI-1e-C0g" customClass="SettingsViewController" customModule="Drink___Drive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ydp-j3-WY5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="30P-oz-3N6">
+                                <rect key="frame" x="20" y="240" width="374" height="196"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bWa-8Y-gdS">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uo-it-jD1">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhQ-2N-fPg">
+                                                <rect key="frame" x="191" y="0.0" width="183" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6oD-sS-7OC">
+                                        <rect key="frame" x="0.0" y="54" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-al-hI8">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-pB-QSV">
+                                                <rect key="frame" x="191" y="0.0" width="183" height="32"/>
+                                                <segments>
+                                                    <segment title="lbs"/>
+                                                    <segment title="kg"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="segmentControlAction:" destination="sPI-1e-C0g" eventType="valueChanged" id="xUY-GG-Bs0"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u2L-Yr-Vht">
+                                        <rect key="frame" x="0.0" y="105" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thq-Qv-2Db">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-oA-lI2">
+                                                <rect key="frame" x="191" y="0.0" width="183" height="32"/>
+                                                <segments>
+                                                    <segment title="male"/>
+                                                    <segment title="female"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGZ-nl-Li8">
+                                        <rect key="frame" x="0.0" y="156" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="N3u-LZ-dVn"/>
+                                        </constraints>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="sPI-1e-C0g" eventType="touchUpInside" id="4Nx-TJ-yhb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xMe-fU-OdI" firstAttribute="trailing" secondItem="30P-oz-3N6" secondAttribute="trailing" constant="20" id="Fiu-Ua-1XR"/>
+                            <constraint firstItem="30P-oz-3N6" firstAttribute="leading" secondItem="xMe-fU-OdI" secondAttribute="leading" constant="20" id="JAm-6O-Cdc"/>
+                            <constraint firstItem="30P-oz-3N6" firstAttribute="top" secondItem="xMe-fU-OdI" secondAttribute="top" constant="100" id="RXq-f3-Hmb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xMe-fU-OdI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="yav-On-Tao"/>
+                    <connections>
+                        <outlet property="genderSegmentControl" destination="ENq-oA-lI2" id="p7F-uW-1TP"/>
+                        <outlet property="metricSegmentControl" destination="c6s-pB-QSV" id="6Tp-dc-g98"/>
+                        <outlet property="saveButtonOutlet" destination="iGZ-nl-Li8" id="u7e-Bd-grM"/>
+                        <outlet property="weightTextField" destination="nhQ-2N-fPg" id="TJL-7C-YWX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qa-DR-KEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="130"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="47y-qI-cse">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cpn-0j-1E0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="tt9-40-epp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pFC-MK-dcN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49M-bh-fXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
